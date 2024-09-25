@@ -9,11 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{3149D54B-319E-4D2A-8BE4-F0F2A86E6175}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScheduledServicesCenterUI", "ScheduledServicesCenterUI", "{2B9E2469-D1B7-4CB3-ACAC-0E528E682AAC}"
-	ProjectSection(SolutionItems) = preProject
-		Test.txt = Test.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
