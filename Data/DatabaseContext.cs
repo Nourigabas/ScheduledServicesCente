@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class DatabaseContext:DbContext
+    public class DatabaseContext : DbContext
     {
+        public DatabaseContext(DbContextOptions<DatabaseContext> dbContextOptions) : base(dbContextOptions) { }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Service> Services { get; set; }
@@ -21,18 +22,40 @@ namespace Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("YourConnectionStringHere");
+                optionsBuilder.UseSqlServer("ScheduledServicesCenteDBConnection");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointment>()
-                .HasOne(a => a.Reservation)
-                .WithOne(r => r.Appointment)
-                .HasForeignKey<Reservation>(r => r.AppointmentId); 
+                        .HasOne(a => a.Reservation)
+                        .WithOne(r => r.Appointment)
+                        .HasForeignKey<Reservation>(r => r.AppointmentId);
+            modelBuilder.Entity<Service>()
+                        .HasOne(s => s.ServiceOwner)
+                        .WithMany(o => o.Services)
+                        .HasForeignKey(s => s.ServiceOwnerId)
+                        .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Service>()
+                        .HasOne(s => s.Sector)
+                        .WithMany(sector => sector.Services)
+                        .HasForeignKey(s => s.SectorId)
+                        .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Reservation>()
+                        .HasOne(r => r.Service)
+                        .WithMany(s => s.Reservations)
+                        .HasForeignKey(r => r.ServiceId)
+                        .OnDelete(DeleteBehavior.Restrict);  
 
-            base.OnModelCreating(modelBuilder);
+
+
+
+
+
+
+
+
         }
     }
-    
+
 }

@@ -15,8 +15,6 @@ builder.Services.AddSwaggerGen();
 //الاتصال مع قاعدة البيانات 
 builder.Services.AddDbContext<DatabaseContext>(option =>
           option.UseSqlServer(builder.Configuration["ConnectionStrings:ScheduledServicesCenteDBConnection"]));
-//جعل المتحول الذي يتم انشاءه من كلاس قاعدة البيانات عام لكل المشروع
-builder.Services.AddScoped<DatabaseContext>();
 
 
 var app = builder.Build();

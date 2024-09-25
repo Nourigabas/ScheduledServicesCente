@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240925043540_initial")]
+    [Migration("20240925204113_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -43,9 +43,6 @@ namespace Data.Migrations
                     b.Property<Guid>("ServiceId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ServiceOwnerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("TheAppointment")
                         .HasColumnType("datetime2");
 
@@ -53,9 +50,27 @@ namespace Data.Migrations
 
                     b.HasIndex("ServiceId");
 
-                    b.HasIndex("ServiceOwnerId");
-
                     b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("Domain.CategoryService", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SectorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SectorId");
+
+                    b.ToTable("CategoryService");
                 });
 
             modelBuilder.Entity("Domain.PlatformManagers", b =>
@@ -92,9 +107,6 @@ namespace Data.Migrations
                     b.Property<Guid>("ServiceId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ServiceOwnerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -104,8 +116,6 @@ namespace Data.Migrations
                         .IsUnique();
 
                     b.HasIndex("ServiceId");
-
-                    b.HasIndex("ServiceOwnerId");
 
                     b.HasIndex("UserId");
 
@@ -136,6 +146,9 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("CategoryServiceId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -153,9 +166,16 @@ namespace Data.Migrations
                     b.Property<Guid>("SectorId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("ServiceOwnerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryServiceId");
+
                     b.HasIndex("SectorId");
+
+                    b.HasIndex("ServiceOwnerId");
 
                     b.ToTable("Services");
                 });
@@ -190,9 +210,6 @@ namespace Data.Migrations
                     b.Property<Guid>("SectorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ServiceId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Site")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -212,8 +229,6 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("SectorId");
-
-                    b.HasIndex("ServiceId");
 
                     b.ToTable("OwnerServices");
                 });
@@ -248,21 +263,6 @@ namespace Data.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ServiceUser", b =>
-                {
-                    b.Property<Guid>("ServicesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UsersId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("ServicesId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("ServiceUser");
-                });
-
             modelBuilder.Entity("Domain.Appointment", b =>
                 {
                     b.HasOne("Domain.Service", "Service")
@@ -271,15 +271,18 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.ServiceOwner", "ServiceOwner")
-                        .WithMany("Appointments")
-                        .HasForeignKey("ServiceOwnerId")
+                    b.Navigation("Service");
+                });
+
+            modelBuilder.Entity("Domain.CategoryService", b =>
+                {
+                    b.HasOne("Domain.Sector", "Sector")
+                        .WithMany("CategoryServices")
+                        .HasForeignKey("SectorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Service");
-
-                    b.Navigation("ServiceOwner");
+                    b.Navigation("Sector");
                 });
 
             modelBuilder.Entity("Domain.Reservation", b =>
@@ -293,13 +296,7 @@ namespace Data.Migrations
                     b.HasOne("Domain.Service", "Service")
                         .WithMany("Reservations")
                         .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.ServiceOwner", "ServiceOwner")
-                        .WithMany("Reservations")
-                        .HasForeignKey("ServiceOwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Domain.User", "User")
@@ -312,20 +309,34 @@ namespace Data.Migrations
 
                     b.Navigation("Service");
 
-                    b.Navigation("ServiceOwner");
-
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Service", b =>
                 {
-                    b.HasOne("Domain.Sector", "Sector")
+                    b.HasOne("Domain.CategoryService", "CategoryService")
                         .WithMany("Services")
-                        .HasForeignKey("SectorId")
+                        .HasForeignKey("CategoryServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Sector", "Sector")
+                        .WithMany("Services")
+                        .HasForeignKey("SectorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Domain.ServiceOwner", "ServiceOwner")
+                        .WithMany("Services")
+                        .HasForeignKey("ServiceOwnerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("CategoryService");
+
                     b.Navigation("Sector");
+
+                    b.Navigation("ServiceOwner");
                 });
 
             modelBuilder.Entity("Domain.ServiceOwner", b =>
@@ -336,30 +347,7 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Service", "Service")
-                        .WithMany("ServiceOwners")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Sector");
-
-                    b.Navigation("Service");
-                });
-
-            modelBuilder.Entity("ServiceUser", b =>
-                {
-                    b.HasOne("Domain.Service", null)
-                        .WithMany()
-                        .HasForeignKey("ServicesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Appointment", b =>
@@ -367,8 +355,15 @@ namespace Data.Migrations
                     b.Navigation("Reservation");
                 });
 
+            modelBuilder.Entity("Domain.CategoryService", b =>
+                {
+                    b.Navigation("Services");
+                });
+
             modelBuilder.Entity("Domain.Sector", b =>
                 {
+                    b.Navigation("CategoryServices");
+
                     b.Navigation("ServiceOwners");
 
                     b.Navigation("Services");
@@ -379,15 +374,11 @@ namespace Data.Migrations
                     b.Navigation("Appointments");
 
                     b.Navigation("Reservations");
-
-                    b.Navigation("ServiceOwners");
                 });
 
             modelBuilder.Entity("Domain.ServiceOwner", b =>
                 {
-                    b.Navigation("Appointments");
-
-                    b.Navigation("Reservations");
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("Domain.User", b =>

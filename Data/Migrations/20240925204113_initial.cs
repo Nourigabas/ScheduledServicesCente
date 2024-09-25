@@ -54,21 +54,18 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Services",
+                name: "CategoryService",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    IsAccepted = table.Column<bool>(type: "bit", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Services", x => x.Id);
+                    table.PrimaryKey("PK_CategoryService", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Services_Sectors_SectorId",
+                        name: "FK_CategoryService_Sectors_SectorId",
                         column: x => x.SectorId,
                         principalTable: "Sectors",
                         principalColumn: "Id",
@@ -90,7 +87,6 @@ namespace Data.Migrations
                     UrlCV = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsAccepted = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -102,36 +98,41 @@ namespace Data.Migrations
                         principalTable: "Sectors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_OwnerServices_Services_ServiceId",
-                        column: x => x.ServiceId,
-                        principalTable: "Services",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ServiceUser",
+                name: "Services",
                 columns: table => new
                 {
-                    ServicesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UsersId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    IsAccepted = table.Column<bool>(type: "bit", nullable: false),
+                    ServiceOwnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoryServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ServiceUser", x => new { x.ServicesId, x.UsersId });
+                    table.PrimaryKey("PK_Services", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ServiceUser_Services_ServicesId",
-                        column: x => x.ServicesId,
-                        principalTable: "Services",
+                        name: "FK_Services_CategoryService_CategoryServiceId",
+                        column: x => x.CategoryServiceId,
+                        principalTable: "CategoryService",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ServiceUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
+                        name: "FK_Services_OwnerServices_ServiceOwnerId",
+                        column: x => x.ServiceOwnerId,
+                        principalTable: "OwnerServices",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Services_Sectors_SectorId",
+                        column: x => x.SectorId,
+                        principalTable: "Sectors",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -142,19 +143,12 @@ namespace Data.Migrations
                     TheAppointment = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     IsBooked = table.Column<bool>(type: "bit", nullable: false),
-                    ServiceOwnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ReservationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Appointments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Appointments_OwnerServices_ServiceOwnerId",
-                        column: x => x.ServiceOwnerId,
-                        principalTable: "OwnerServices",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Appointments_Services_ServiceId",
                         column: x => x.ServiceId,
@@ -170,7 +164,6 @@ namespace Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ServiceOwnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AppointmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -184,17 +177,11 @@ namespace Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Reservations_OwnerServices_ServiceOwnerId",
-                        column: x => x.ServiceOwnerId,
-                        principalTable: "OwnerServices",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Reservations_Services_ServiceId",
                         column: x => x.ServiceId,
                         principalTable: "Services",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Reservations_Users_UserId",
                         column: x => x.UserId,
@@ -209,19 +196,14 @@ namespace Data.Migrations
                 column: "ServiceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Appointments_ServiceOwnerId",
-                table: "Appointments",
-                column: "ServiceOwnerId");
+                name: "IX_CategoryService_SectorId",
+                table: "CategoryService",
+                column: "SectorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OwnerServices_SectorId",
                 table: "OwnerServices",
                 column: "SectorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OwnerServices_ServiceId",
-                table: "OwnerServices",
-                column: "ServiceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reservations_AppointmentId",
@@ -235,14 +217,14 @@ namespace Data.Migrations
                 column: "ServiceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservations_ServiceOwnerId",
-                table: "Reservations",
-                column: "ServiceOwnerId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Reservations_UserId",
                 table: "Reservations",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Services_CategoryServiceId",
+                table: "Services",
+                column: "CategoryServiceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Services_SectorId",
@@ -250,9 +232,9 @@ namespace Data.Migrations
                 column: "SectorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ServiceUser_UsersId",
-                table: "ServiceUser",
-                column: "UsersId");
+                name: "IX_Services_ServiceOwnerId",
+                table: "Services",
+                column: "ServiceOwnerId");
         }
 
         /// <inheritdoc />
@@ -265,19 +247,19 @@ namespace Data.Migrations
                 name: "Reservations");
 
             migrationBuilder.DropTable(
-                name: "ServiceUser");
-
-            migrationBuilder.DropTable(
                 name: "Appointments");
 
             migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "OwnerServices");
+                name: "Services");
 
             migrationBuilder.DropTable(
-                name: "Services");
+                name: "CategoryService");
+
+            migrationBuilder.DropTable(
+                name: "OwnerServices");
 
             migrationBuilder.DropTable(
                 name: "Sectors");

@@ -14,9 +14,6 @@ namespace Domain
         public string Phone { get; set; }
         public string Gmail { get; set; }
         public string Site { get; set; }
-        //The services he wants to obtain
-        public ICollection<Service> Services { get; set; }
-        //Bookings for those services he wants
         public ICollection<Reservation> Reservations { get; set; }
     }
 }
