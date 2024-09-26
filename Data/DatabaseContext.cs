@@ -18,6 +18,8 @@ namespace Data
         public DbSet<ServiceOwner> OwnerServices { get; set; }
         public DbSet<Sector> Sectors { get; set; }
         public DbSet<PlatformManagers> PlatformManagers { get; set; }
+        public DbSet<CategoryService> CategoryServices { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

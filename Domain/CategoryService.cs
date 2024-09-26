@@ -10,6 +10,7 @@ namespace Domain
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public bool IsDeleted { get; set; } = false;
         public Guid SectorId { get; set; }
         public Sector Sector { get; set; }
         public ICollection<Service> Services { get; set; }
