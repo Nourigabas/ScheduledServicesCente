@@ -4,19 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.ModelForCreate
 {
-    //حجوزات
-    public class Reservation
+    public class ReservationForCreate
     {
-        public Guid Id { get; set; }
         public bool IsDeleted { get; set; } = false;
         public Guid UserId { get; set; }
-        public User User { get; set; }
         public Guid ServiceId { get; set; }
-        public Service Service { get; set; }
         public Guid AppointmentId { get; set; }
-        public Appointment Appointment { get; set; }
-
     }
 }

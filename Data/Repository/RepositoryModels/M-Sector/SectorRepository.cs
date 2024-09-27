@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,9 +25,9 @@ namespace Data.Repository.RepositoryModels
         {
             var response = Get(e => e.Id == SectorId && !e.IsDeleted, new[] 
             {
+                "ServiceOwners" ,
                 "CategoryServices",
-                "Services",
-                "ServiceOwners" 
+                "Services"
             });
             return response;
         }

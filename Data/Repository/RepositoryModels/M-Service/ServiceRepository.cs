@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Domain.Models;
 
 namespace Data.Repository.RepositoryModels.M_Service
 {

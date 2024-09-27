@@ -47,7 +47,7 @@ namespace Data.Migrations
 
                     b.HasIndex("ServiceId");
 
-                    b.ToTable("Appointments");
+                    b.ToTable("Appointments", (string)null);
                 });
 
             modelBuilder.Entity("Domain.CategoryService", b =>
@@ -70,7 +70,7 @@ namespace Data.Migrations
 
                     b.HasIndex("SectorId");
 
-                    b.ToTable("CategoryServices");
+                    b.ToTable("CategoryServices", (string)null);
                 });
 
             modelBuilder.Entity("Domain.PlatformManagers", b =>
@@ -89,7 +89,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlatformManagers");
+                    b.ToTable("PlatformManagers", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Reservation", b =>
@@ -119,7 +119,7 @@ namespace Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Sector", b =>
@@ -137,7 +137,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sectors");
+                    b.ToTable("Sectors", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Service", b =>
@@ -177,7 +177,7 @@ namespace Data.Migrations
 
                     b.HasIndex("ServiceOwnerId");
 
-                    b.ToTable("Services");
+                    b.ToTable("Services", (string)null);
                 });
 
             modelBuilder.Entity("Domain.ServiceOwner", b =>
@@ -230,7 +230,7 @@ namespace Data.Migrations
 
                     b.HasIndex("SectorId");
 
-                    b.ToTable("OwnerServices");
+                    b.ToTable("OwnerServices", (string)null);
                 });
 
             modelBuilder.Entity("Domain.User", b =>
@@ -271,7 +271,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Appointment", b =>

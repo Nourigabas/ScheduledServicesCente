@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Models
 {
     public class Service
     {
+        public Service()
+        {
+            Id = Guid.NewGuid();
+        }
         public Guid Id { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }

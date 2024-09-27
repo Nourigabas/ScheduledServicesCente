@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Models
 {
     public class CategoryService
     {
+        public CategoryService()
+        {
+            Id = Guid.NewGuid();
+        }
         public Guid Id { get; set; }
         public string Name { get; set; }
         public bool IsDeleted { get; set; } = false;

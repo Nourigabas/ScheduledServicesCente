@@ -1,4 +1,9 @@
 ﻿using Data;
+using Data.Repository.RepositoryModels;
+using Data.Repository.RepositoryModels.M_Appointment;
+using Data.Repository.RepositoryModels.M_Reservation;
+using Data.Repository.RepositoryModels.M_Service;
+using Data.Repository.RepositoryModels.M_User;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +20,16 @@ builder.Services.AddSwaggerGen();
 //الاتصال مع قاعدة البيانات 
 builder.Services.AddDbContext<DatabaseContext>(option =>
           option.UseSqlServer(builder.Configuration["ConnectionStrings:ScheduledServicesCenteDBConnection"]));
+
+
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<ICategoryServiceRepository, CategoryServiceRepository>();
+builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+builder.Services.AddScoped<ISectorRepository, SectorRepository>();
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 
 
 var app = builder.Build();
