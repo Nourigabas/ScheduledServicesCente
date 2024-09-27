@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.ModelForCreate
+namespace Domain.ModelsForCreateAndUpdate
 {
-    public class SectorForCreate
+    public class SectorForCreate_Update
     {
         public string Description { get; set; }
         public bool IsDeleted { get; set; } = false;
