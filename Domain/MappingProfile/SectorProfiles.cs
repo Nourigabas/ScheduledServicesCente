@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.ModelForCreate;
 using Domain.Models;
+using Domain.ModelsForCreateAndUpdate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,8 @@ namespace Domain.MappingProfile
     {
         public SectorProfiles()
         {
-            CreateMap<Sector, SectorForCreate>();
-            CreateMap<SectorForCreate, Sector>();
+            CreateMap<Sector, SectorForCreate_Update>();
+            CreateMap<SectorForCreate_Update, Sector>();
         }
     }
 }

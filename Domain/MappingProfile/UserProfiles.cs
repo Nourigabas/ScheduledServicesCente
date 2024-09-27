@@ -13,8 +13,8 @@ namespace Domain.MappingProfile
     {
         public UserProfiles()
         {
-            CreateMap<User, UserForCreate>();
-            CreateMap<UserForCreate, User>();
+            CreateMap<User, UserForCreate_Update>();
+            CreateMap<UserForCreate_Update, User>();
         }
     }
 }

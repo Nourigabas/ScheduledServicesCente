@@ -1,4 +1,7 @@
-﻿using Domain.Models;
+﻿using AutoMapper;
+using Domain.ModelForCreate;
+using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +12,12 @@ namespace Data.Repository.RepositoryModels.M_Reservation
 {
     public class ReservationRepository : GenericRepository<Reservation>, IReservationRepository
     {
+        private readonly IMapper mapper;
         private readonly DatabaseContext DatabaseContext;
 
-        public ReservationRepository(DatabaseContext DatabaseContext) : base(DatabaseContext)
+        public ReservationRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
         {
+            this.mapper = mapper;
             this.DatabaseContext = DatabaseContext;
         }
         public void CreateReservation(Reservation Reservation)
@@ -52,9 +57,15 @@ namespace Data.Repository.RepositoryModels.M_Reservation
             return respone;
         }
 
-        public void UpdateReservation(Guid ReservationId)
+     
+        public void UpdateReservation(Guid ReservationId, JsonPatchDocument<ReservationForCreate_Update> PatchDocument)
         {
-            
+            var Reservation = GetReservation(ReservationId);
+            var ReservationToPatch = mapper.Map<ReservationForCreate_Update>(Reservation);
+            PatchDocument.ApplyTo(ReservationToPatch);
+            mapper.Map(ReservationToPatch, Reservation);
+            SaveChange();
+            return;
         }
     }
 }

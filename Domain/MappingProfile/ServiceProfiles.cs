@@ -13,8 +13,8 @@ namespace Domain.MappingProfile
     {
         public ServiceProfiles()
         {
-        CreateMap<Service, ServiceForCreate>();
-        CreateMap<ServiceForCreate, Service>();
+        CreateMap<Service, ServiceForCreate_Update>();
+        CreateMap<ServiceForCreate_Update, Service>();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ModelForCreate
 {
-    public class AppointmentForCreate
+    public class AppointmentForCreate_Update
     {
         public DateTime TheAppointment { get; set; }
         public bool IsDeleted { get; set; } = false;

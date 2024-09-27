@@ -1,4 +1,7 @@
-﻿using Domain.Models;
+﻿using Domain.ModelForCreate;
+using Domain.Models;
+using Domain.ModelsForCreateAndUpdate;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +16,7 @@ namespace Data.Repository.RepositoryModels.M_Appointment
         Appointment GetAppointment(Guid AppointmentId);
         void DeleteAppointment(Guid AppointmentId);
         void CreateAppointment(Appointment Appointment);
-        void UpdateAppointment(Guid AppointmentId);
+        void UpdateAppointment(Guid AppointmentId,JsonPatchDocument<AppointmentForCreate_Update> PatchDocument);
         void AppointmentBooked(Guid AppointmentId);
     }
 }

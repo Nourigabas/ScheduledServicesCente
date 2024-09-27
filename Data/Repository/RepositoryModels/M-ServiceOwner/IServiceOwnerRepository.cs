@@ -1,4 +1,6 @@
-﻿using Domain.Models;
+﻿using Domain.ModelForCreate;
+using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,7 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
         ServiceOwner GetServiceOwner(Guid ServiceOwnerId);
         void DeleteServiceOwner(Guid ServiceOwnerId);
         void CreateServiceOwner(ServiceOwner ServiceOwner);
-        void UpdateServiceOwner(Guid ServiceOwnerId);
+        void UpdateServiceOwner(Guid ServiceOwnerId, JsonPatchDocument<ServiceOwnerForCreate_Update> PatchDocument);
         void ServiceOwnerAccept(Guid ServiceOwnerId);
     }
 }

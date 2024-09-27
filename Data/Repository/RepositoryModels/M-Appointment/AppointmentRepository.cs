@@ -1,5 +1,9 @@
-﻿using Data;
+﻿using AutoMapper;
+using Data;
+using Domain.ModelForCreate;
 using Domain.Models;
+using Domain.ModelsForCreateAndUpdate;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +14,12 @@ namespace Data.Repository.RepositoryModels.M_Appointment
 {
     public class AppointmentRepository : GenericRepository<Appointment>, IAppointmentRepository
     {
+        private readonly IMapper mapper;
         private readonly DatabaseContext DatabaseContext;
 
-        public AppointmentRepository(DatabaseContext DatabaseContext) : base(DatabaseContext)
+        public AppointmentRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
         {
+            this.mapper = mapper;
             this.DatabaseContext = DatabaseContext;
         }
 
@@ -59,9 +65,14 @@ namespace Data.Repository.RepositoryModels.M_Appointment
             return respone;
         }
 
-        public void UpdateAppointment(Guid AppointmentId)
+        public void UpdateAppointment(Guid AppointmentId, JsonPatchDocument<AppointmentForCreate_Update> PatchDocument)
         {
-            throw new NotImplementedException();
+            var Appointment = GetAppointment(AppointmentId);
+            var AppointmentToPatch = mapper.Map<AppointmentForCreate_Update>(Appointment);
+            PatchDocument.ApplyTo(AppointmentToPatch);
+            mapper.Map(AppointmentToPatch, Appointment);
+            SaveChange();
+            return;
         }
     }
 }

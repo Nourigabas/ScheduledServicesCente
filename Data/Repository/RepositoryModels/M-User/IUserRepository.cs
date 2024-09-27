@@ -1,4 +1,6 @@
-﻿using Domain.Models;
+﻿using Domain.ModelForCreate;
+using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,6 @@ namespace Data.Repository.RepositoryModels.M_User
         User GetUser(Guid UserId);
         void DeleteUser(Guid UserId);
         void CreateUser(User User);
-        void UpdateUser(Guid UserId);
+        void UpdateUser(Guid UserId, JsonPatchDocument<UserForCreate_Update> PatchDocument);
     }
 }

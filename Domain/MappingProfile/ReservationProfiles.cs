@@ -13,8 +13,8 @@ namespace Domain.MappingProfile
     {
         public ReservationProfiles()
         {
-            CreateMap<Reservation, ReservationForCreate>();
-            CreateMap<ReservationForCreate, Reservation>();
+            CreateMap<Reservation, ReservationForCreate_Update>();
+            CreateMap<ReservationForCreate_Update, Reservation>();
         }
     }
 }

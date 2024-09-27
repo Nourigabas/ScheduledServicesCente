@@ -1,20 +1,26 @@
-﻿using Domain.Models;
+﻿using AutoMapper;
+using Domain.Models;
+using Domain.ModelsForCreateAndUpdate;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 
 namespace Data.Repository.RepositoryModels
 {
     public class SectorRepository : GenericRepository<Sector>, ISectorRepository
     {
         private readonly DatabaseContext DatabaseContext;
+        private readonly IMapper mapper;
 
-        public SectorRepository(DatabaseContext DatabaseContext) : base(DatabaseContext)
+        public SectorRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
         {
             this.DatabaseContext = DatabaseContext;
+            this.mapper = mapper;
         }
         public void CreateSector(Sector Sector)
         {
@@ -52,9 +58,14 @@ namespace Data.Repository.RepositoryModels
             return respone;
         }
 
-        public void UpdateSector(Guid SectorId)
+        public void UpdateSector(Guid SectorId, JsonPatchDocument<SectorForCreate_Update> PatchDocument)
         {
-
+            var sector = GetSector(SectorId);
+            var SectorToPatch = mapper.Map<SectorForCreate_Update>(sector);
+            PatchDocument.ApplyTo(SectorToPatch);
+            mapper.Map(SectorToPatch, sector);
+            SaveChange();
+            return;
         }
     }
 }

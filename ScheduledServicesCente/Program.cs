@@ -22,6 +22,11 @@ builder.Services.AddDbContext<DatabaseContext>(option =>
           option.UseSqlServer(builder.Configuration["ConnectionStrings:ScheduledServicesCenteDBConnection"]));
 
 
+//تسجيل
+//mapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<ICategoryServiceRepository, CategoryServiceRepository>();

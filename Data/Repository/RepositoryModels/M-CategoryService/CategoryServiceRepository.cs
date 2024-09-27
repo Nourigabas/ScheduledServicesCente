@@ -1,4 +1,7 @@
-﻿using Domain.Models;
+﻿using AutoMapper;
+using Domain.ModelForCreate;
+using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +12,11 @@ namespace Data.Repository.RepositoryModels
 {
     public class CategoryServiceRepository : GenericRepository<CategoryService>, ICategoryServiceRepository
     {
+        private readonly IMapper mapper;
         private readonly DatabaseContext DatabaseContext;
-        public CategoryServiceRepository(DatabaseContext DatabaseContext) : base(DatabaseContext)
+        public CategoryServiceRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
         {
+            this.mapper = mapper;
             this.DatabaseContext = DatabaseContext;
         }
 
@@ -50,9 +55,15 @@ namespace Data.Repository.RepositoryModels
             return respone;
         }
 
-        public void UpdateCategoryService(Guid CategoryServiceId)
+
+        public void UpdateCategoryService(Guid CategoryServiceId, JsonPatchDocument<CategoryServiceForCreate_Update> PatchDocument)
         {
-            throw new NotImplementedException();
+            var CategoryService = GetCategoryService(CategoryServiceId);
+            var CategoryServiceToPatch = mapper.Map<CategoryServiceForCreate_Update>(CategoryService);
+            PatchDocument.ApplyTo(CategoryServiceToPatch);
+            mapper.Map(CategoryServiceToPatch, CategoryService);
+            SaveChange();
+            return;
         }
     }
 }

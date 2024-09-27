@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ModelForCreate
 {
-    public class ServiceForCreate
+    public class ServiceForCreate_Update
     {
         public string Description { get; set; }
         public string Location { get; set; }

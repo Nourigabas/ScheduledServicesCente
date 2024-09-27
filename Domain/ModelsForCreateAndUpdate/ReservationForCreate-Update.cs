@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ModelForCreate
 {
-    public class ReservationForCreate
+    public class ReservationForCreate_Update
     {
         public bool IsDeleted { get; set; } = false;
         public Guid UserId { get; set; }

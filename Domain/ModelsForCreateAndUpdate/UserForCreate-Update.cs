@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ModelForCreate
 {
-    public class UserForCreate
+    public class UserForCreate_Update
     {
         public string FullName { get; set; }
         public DateTime DateOfBirth { get; set; }

@@ -1,4 +1,6 @@
 ﻿using Domain.Models;
+using Domain.ModelsForCreateAndUpdate;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,6 @@ namespace Data.Repository.RepositoryModels
         Sector GetSector(Guid SectorId);
         void DeletSector(Guid SectorId);
         void CreateSector(Sector Sector);
-        void UpdateSector(Guid SectorId);
+        void UpdateSector(Guid SectorId, JsonPatchDocument<SectorForCreate_Update> PatchDocument);
     }
 }

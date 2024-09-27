@@ -13,8 +13,8 @@ namespace Domain.MappingProfile
     {
         public AppointmentProfiles()
         {
-        CreateMap<Appointment, AppointmentForCreate>();
-        CreateMap<AppointmentForCreate, Appointment>();
+        CreateMap<Appointment, AppointmentForCreate_Update>();
+        CreateMap<AppointmentForCreate_Update, Appointment>();
         }
     }
 }

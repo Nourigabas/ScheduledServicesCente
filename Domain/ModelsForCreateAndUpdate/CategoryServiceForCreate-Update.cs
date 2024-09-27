@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ModelForCreate
 {
-    public class CategoryServiceForCreate
+    public class CategoryServiceForCreate_Update
     {
         public string Name { get; set; }
         public Guid SectorId { get; set; }

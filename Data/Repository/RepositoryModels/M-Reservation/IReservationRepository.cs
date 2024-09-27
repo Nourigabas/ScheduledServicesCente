@@ -1,4 +1,6 @@
-﻿using Domain.Models;
+﻿using Domain.ModelForCreate;
+using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,6 @@ namespace Data.Repository.RepositoryModels.M_Reservation
         Reservation GetReservation(Guid ReservationId);
         void DeleteReservation(Guid ReservationId);
         void CreateReservation(Reservation Reservation);
-        void UpdateReservation(Guid ReservationId);
+        void UpdateReservation(Guid ReservationId, JsonPatchDocument<ReservationForCreate_Update> PatchDocument);
     }
 }

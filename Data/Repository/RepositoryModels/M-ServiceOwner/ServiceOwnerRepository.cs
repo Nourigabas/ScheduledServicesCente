@@ -1,4 +1,7 @@
-﻿using Domain.Models;
+﻿using AutoMapper;
+using Domain.ModelForCreate;
+using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +12,12 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
 {
     public class ServiceOwnerRepository : GenericRepository<ServiceOwner>, IServiceOwnerRepository
     {
+        private readonly IMapper mapper;
         private readonly DatabaseContext DatabaseContext;
 
-        public ServiceOwnerRepository(DatabaseContext DatabaseContext) : base(DatabaseContext)
+        public ServiceOwnerRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
         {
+            this.mapper = mapper;
             this.DatabaseContext = DatabaseContext;
         }
 
@@ -58,11 +63,15 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
             return respone;
         }
 
-        public void UpdateServiceOwner(Guid ServiceOwnerId)
-        {
-            throw new NotImplementedException();
-        }
 
-        
+        public void UpdateServiceOwner(Guid ServiceOwnerId, JsonPatchDocument<ServiceOwnerForCreate_Update> PatchDocument)
+        {
+            var ServiceOwner = GetServiceOwner(ServiceOwnerId);
+            var ServiceToPatch = mapper.Map<ServiceOwnerForCreate_Update>(ServiceOwner);
+            PatchDocument.ApplyTo(ServiceToPatch);
+            mapper.Map(ServiceToPatch, ServiceOwner);
+            SaveChange();
+            return;
+        }
     }
 }

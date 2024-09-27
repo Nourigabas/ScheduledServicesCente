@@ -1,4 +1,7 @@
-﻿using Domain.Models;
+﻿using AutoMapper;
+using Domain.ModelForCreate;
+using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +12,11 @@ namespace Data.Repository.RepositoryModels.M_User
 {
     public class UserRepository : GenericRepository<User>, IUserRepository
     {
+        private readonly IMapper mapper;
         private readonly DatabaseContext DatabaseContext;
-        public UserRepository(DatabaseContext DatabaseContext) : base(DatabaseContext)
+        public UserRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
         {
+            this.mapper = mapper;
             this.DatabaseContext = DatabaseContext;
         }
 
@@ -47,10 +52,16 @@ namespace Data.Repository.RepositoryModels.M_User
             });
             return response;
         }
+ 
 
-        public void UpdateUser(Guid UserId)
+        public void UpdateUser(Guid UserId, JsonPatchDocument<UserForCreate_Update> PatchDocument)
         {
-            throw new NotImplementedException();
+            var User = GetUser(UserId);
+            var UserToPatch = mapper.Map<UserForCreate_Update>(User);
+            PatchDocument.ApplyTo(UserToPatch);
+            mapper.Map(UserToPatch, User);
+            SaveChange();
+            return;
         }
     }
 }

@@ -1,13 +1,18 @@
-﻿using Domain.Models;
+﻿using AutoMapper;
+using Domain.ModelForCreate;
+using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Data.Repository.RepositoryModels.M_Service
 {
     public class ServiceRepository : GenericRepository<Service>, IServiceRepository
     {
+        private readonly IMapper mapper;
         private readonly DatabaseContext DatabaseContext;
 
-        public ServiceRepository(DatabaseContext DatabaseContext) : base(DatabaseContext)
+        public ServiceRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
         {
+            this.mapper = mapper;
             this.DatabaseContext = DatabaseContext;
         }
 
@@ -59,9 +64,15 @@ namespace Data.Repository.RepositoryModels.M_Service
             return respone;
         }
 
-        public void UpdateService(Guid ServiceId)
+     
+        public void UpdateService(Guid ServiceId, JsonPatchDocument<ServiceForCreate_Update> PatchDocument)
         {
-            throw new NotImplementedException();
+            var Service = GetService(ServiceId);
+            var ReservationToPatch = mapper.Map<ServiceForCreate_Update>(Service);
+            PatchDocument.ApplyTo(ReservationToPatch);
+            mapper.Map(ReservationToPatch, Service);
+            SaveChange();
+            return;
         }
     }
 }
