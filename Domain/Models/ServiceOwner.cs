@@ -23,6 +23,8 @@ namespace Domain.Models
         public string UrlCV { get; set; }
         public bool IsAccepted { get; set; } = false;
         public bool IsDeleted { get; set; } = false;
+        public string UserName { get; set; }
+        public string Password { get; set; }
         public ICollection<Service> Services { get; set; }
         public Guid SectorId { get; set; }
         public Sector Sector { get; set; }

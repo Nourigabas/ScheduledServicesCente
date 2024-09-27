@@ -1,10 +1,13 @@
 ﻿using Data;
 using Data.Repository.RepositoryModels;
+using Data.Repository.RepositoryModels.M_Account;
 using Data.Repository.RepositoryModels.M_Appointment;
 using Data.Repository.RepositoryModels.M_Reservation;
 using Data.Repository.RepositoryModels.M_Service;
 using Data.Repository.RepositoryModels.M_User;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,23 @@ builder.Services.AddSwaggerGen();
 
 
 
+
+//token
+builder.Services.AddAuthentication()
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidIssuer = builder.Configuration["Authentication:Issuer"],
+            ValidAudience = builder.Configuration["Authentication:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Authentication:SecretKey"])),
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true
+        };
+    });
+
+
 //الاتصال مع قاعدة البيانات 
 builder.Services.AddDbContext<DatabaseContext>(option =>
           option.UseSqlServer(builder.Configuration["ConnectionStrings:ScheduledServicesCenteDBConnection"]));
@@ -26,8 +46,8 @@ builder.Services.AddDbContext<DatabaseContext>(option =>
 //mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-
-builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>(); 
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<ICategoryServiceRepository, CategoryServiceRepository>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
@@ -45,6 +65,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//Make authentication as middleware
+app.UseAuthentication();
+
 
 app.UseHttpsRedirection();
 

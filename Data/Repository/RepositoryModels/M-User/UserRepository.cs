@@ -33,7 +33,7 @@ namespace Data.Repository.RepositoryModels.M_User
             SaveChange();
         }
 
-        public List<User> GetUser()
+        public List<User> GetUsers()
         {
             var respone = All(new[]
             {

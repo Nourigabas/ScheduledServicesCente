@@ -13,7 +13,7 @@ namespace Data.Repository.RepositoryModels
     {
         List<CategoryService> GetCategoryServices();
         CategoryService GetCategoryService(Guid CategoryServiceId);
-        void DeletCategoryService(Guid CategoryServiceId);
+        void DeleteCategoryService(Guid CategoryServiceId);
         void CreateCategoryService(CategoryService CategoryService);
         void UpdateCategoryService(Guid CategoryServiceId, JsonPatchDocument<CategoryServiceForCreate_Update> PatchDocument);
     }

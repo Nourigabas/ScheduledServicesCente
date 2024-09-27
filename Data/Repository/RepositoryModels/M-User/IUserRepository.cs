@@ -11,7 +11,7 @@ namespace Data.Repository.RepositoryModels.M_User
 {
     public interface IUserRepository
     {
-        List<User> GetUser();
+        List<User> GetUsers();
         User GetUser(Guid UserId);
         void DeleteUser(Guid UserId);
         void CreateUser(User User);

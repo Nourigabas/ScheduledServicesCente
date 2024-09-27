@@ -26,7 +26,7 @@ namespace Data.Repository.RepositoryModels
             SaveChange();
         }
 
-        public void DeletCategoryService(Guid CategoryServiceId)
+        public void DeleteCategoryService(Guid CategoryServiceId)
         {
             var respone = DatabaseContext.CategoryServices.FirstOrDefault(e => e.Id == CategoryServiceId);
             respone.IsDeleted = true;
