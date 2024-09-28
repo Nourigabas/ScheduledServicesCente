@@ -1,0 +1,19 @@
+#h1-des
+{
+    font-style: italic;
+}
+#lable-search
+{
+    margin-right: 10px;
+     font-style: italic;
+      font-size: 20px;
+}
+#input-search {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+#input-search:hover {
+    background-color: silver;
+}
