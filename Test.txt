@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form created by coding classic</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="#">
+            <h2>login</h2>
+            <div class="input-space">
+                <label for="email">Enter your email</label>
+                <input type="text" required>
+            </div>
+            <div class="input-space">
+                <label for="password">Enter your password</label>
+                <input type="password" required>
+            </div>
+            <div class="remember-forgot">
+                <label for="rememberme">
+                    <input type="checkbox">
+                    Remember Me
+                </label>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form created by coding classic</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="#">
+            <h2>login</h2>
+            <div class="input-space">
+                <label for="email">Enter your email</label>
+                <input type="text" required>
+            </div>
+            <div class="input-space">
+                <label for="password">Enter your password</label>
+                <input type="password" required>
+            </div>
+            <div class="remember-forgot">
+                <label for="rememberme">
+                    <input type="checkbox"> Remember Me
+                </label>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome
+
+>> index.html
+
+#style.css
+
+>> index.html > html> body> div.container > form > div.register >> p
+
+<!DOCTYPE html>
+
+E a 24
+
+1
+
+2
+
+<html lang="en">
+
+3
+
+<head>
+
+4
+
+<meta charset="UTF-8">
+
+5
+
+6
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" <title>login form created by coding classic</title>
+
+日
+
+lo
+
+Re
+
+<link rel="stylesheet" href="style.css">
+
+8
+
+</head>
+
+9
+
+<body>
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+31
+
+<div class="container">
+
+<form action="#">
+
+<h2>Login</h2>
+
+<div class="input-space">
+
+<input type="text" required>
+
+<label for="Enter your email"></label>
+
+</div>
+
+<div class="input-space">
+
+<input type="password" required>
+
+<label for="Enter your password"></label> </div>
+
+<div class="remember-forgot">
+
+<label for="rememberme">
+
+<input type="checkbox" id="rememberme"> <p>Remember me</p>
+
+</label>
+
+<a href="#">forgot password</a>
+
+</div>
+
+<button type="submit">login</button> <div class="register">
+
+<p>Don't have an account? k</p>
+
+</div>
+
+32
+
+</form>
+
+33
+
+</div>
+
+X
+
+ΘΟΔΟ WO
+
+Ln 30, Col 43 Spaces: 4 UTF-8 LF HTML Port: 5500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPLORER
+
+me
+
+>> index.html
+
+#style.css
+
+background.jpg
+
+日
+
+LOGIN-TUTO
+
+#style.css > .container
+
+background.jpg
+
+1
+
+*{
+
+>> index.html
+
+#style.css
+
+2
+
+padding: 0;
+
+3
+
+4
+
+margin: 0;
+
+box-sizing: border-box;
+
+5
+
+}
+
+6
+
+7
+
+body {
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+display: flex;
+
+align-items: center;
+
+min-height: 100vh;
+
+width: 100%;
+
+padding: 10px;
+
+justify-content: center;
+
+14
+
+}
+
+15
+
+16
+
+body::before {
+
+17
+
+position: absolute;
+
+18
+
+content:"";
+
+19
+
+width: 100%;
+
+20
+
+21
+
+22
+
+23
+
+height: 100%;
+
+background: url("./background.jpg"), #000; background-position: center;
+
+background-size: cover;
+
+24
+
+}
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+31
+
+> OUTLINE
+
+32
+
+> TIMELINE
+
+33
+
+}
+
+ΘΟΛΟ ΤΟ
+
+.container {
+
+width: 415px;
+
+border-radius: 9px;
+
+padding: 32px;
+
+text-align: center;
+
+border: 2px solid rgb(188, 185, 185); backdrop-filter: blur;
+
+Ln 32, Col 27 Spaces: 4 UTF-8 LF CSS Port: 5500
+
+5
+
+48
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+日
+
+EXPLORER
+
+me
+
+>> index.html
+
+# style.css 1
+
+background.jpg
+
+LOGIN-TUTO
+
+#style.css > .input-space input
+
+background.jpg
+
+34
+
+}
+
+35
+
+>> index.html
+
+36
+
+form {
+
+# style.css
+
+37
+
+display: flex;
+
+38
+
+flex-direction: column;
+
+39
+
+}
+
+48
+
+41
+
+h2 {
+
+42
+
+43
+
+44
+
+45
+
+}
+
+46
+
+47
+
+48
+
+49
+
+50
+
+font-size: 2rem;
+
+margin-bottom: 19px;
+
+color: white;
+
+.input-space {
+
+position: relative;
+
+border-bottom: 3px solid white;
+
+margin: 14px 0;
+
+51
+
+}
+
+52
+
+53
+
+input-space input
+
+54
+
+4
+
+55
+
+X
+
+> OUTLINE
+
+> TIMELINE
+
+0A1 WO
+
+Ln 54, Col 5 Spaces: 4 UTF-8 LF CSS Port: 5500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPLORER
+
+me
+
+>> index.html
+
+# style.css
+
+background.jpg
+
+日
+
+LOGIN-TUTO
+
+#style.css > ...
+
+background.jpg
+
+52
+
+>> index.html
+
+53
+
+.input-space input {
+
+# style.css
+
+54
+
+785
+
+width: 100%;
+
+55
+
+height: 41px;
+
+56
+
+background: transparent;
+
+ww
+
+57
+
+border: none;
+
+58
+
+outline: none;
+
+59
+
+font-size: 16px;
+
+60
+
+color: white;
+
+61
+
+}
+
+62
+
+63
+
+64
+
+.input-space label {
+
+position: absolute;
+
+65
+
+top: 50%;
+
+66
+
+left: 0;
+
+67
+
+68
+
+69
+
+70
+
+71
+
+72
+
+73
+
+74
+
+}
+
+transform: translateY(-50%);
+
+color: white;
+
+font-size: 16px;
+
+pointer-events: none;
+
+transition: 0.15s ease;
+
+I
+
+@
+
+> OUTLINE
+
+> TIMELINE
+
+ΘΟΔΟ Ο
+
+Ln 74, Col 1 Spaces: 4 UTF-8 LF CSS Port: 5500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPLORER
+
+me
+
+<> index.html
+
+#style.css X background.jpg B
+
+LOGIN-TUTO
+
+#style.css > ...
+
+background.jpg
+
+61
+
+}
+
+>> index.html
+
+62
+
+до
+
+# style.css
+
+63
+
+64
+
+65
+
+.input-space label {
+
+position: absolute;
+
+top: 50%;
+
+66
+
+left: 0;
+
+B
+
+67
+
+68
+
+69
+
+70
+
+71
+
+transform: translateY(-50%);
+
+color: white;
+
+font-size: 16px;
+
+pointer-events: none;
+
+transition: 0.15s ease;
+
+72
+
+}
+
+73
+
+74
+
+75
+
+76
+
+77
+
+78
+
+.input-space input: focus-label .input-space input:valid-label{ font-size: 0.9rem;
+
+top: 10px;
+
+transform: translateY(-120%);
+
+79
+
+}
+
+80
+
+81
+
+82
+
+83
+
+84
+
+85
+
+86
+
+.remember-forgot {
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+margin: 26px @ 36px 0;
+
+color: white;
+
+87
+
+}
+
+88
+
+89
+
+I
+
+> OUTLINE
+
+> TIMELINE
+
+* ΠΟΔΟ Ο
+
+Ln 89, Col 1 Spaces: 4 UTF-8 LF CSS Port: 5500
+
+D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPLORER
+
+me
+
+>> index.html
+
+# style.css X
+
+background.jpg
+
+LOGIN-TUTO
+
+#style.css >...
+
+background.jpg
+
+81
+
+>> index.html
+
+83
+
+84
+
+# style.css
+
+85
+
+86
+
+.remember-forgot {
+
+align-items: center;
+
+justify-content: space-between;
+
+margin: 26px @ 36px 0;
+
+color: white;
+
+87
+
+}
+
+88
+
+89
+
+#rememberme {
+
+98
+
+accent-color: white;
+
+91
+
+}
+
+92
+
+4 8
+
+@
+
+93
+
+.remember-forgot label p{
+
+margin-left: 7px;
+
+.remember-forgot label {
+
+display: flex;
+
+align-items: center;
+
+.container a {
+
+color: white;
+
+text-decoration: none;
+
+94
+
+95
+
+}
+
+96
+
+97
+
+98
+
+99
+
+100
+
+}
+
+101
+
+102
+
+103
+
+104
+
+105
+
+}
+
+106
+
+107
+
+I
+
+R
+
+> OUTLINE
+
+> TIMELINE
+
+ΘΟΔΟ ΑΟ
+
+Ln 107, Col 1 Spaces: 4 UTF-8 LF CSS Port: 5500 Q
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPLORER
+
+me
+
+>> index.html
+
+# style.css
+
+background.jpg
+
+LOGIN-TUTO
+
+#style.css >...
+
+background.jpg
+
+102 .container a {
+
+>> index.html
+
+104
+
+text-decoration: none;
+
+105
+
+}
+
+#style.css
+
+106
+
+107
+
+108
+
+.container a:hover {
+
+text-decoration: underline;
+
+109
+
+}
+
+110
+
+111
+
+button {
+
+112
+
+background: #100000;
+
+113
+
+color: #ffffff;
+
+114
+
+font-weight: 600;
+
+115
+
+border: none;
+
+116
+
+padding: 11px 19px;
+
+117
+
+cursor: pointer;
+
+118
+
+119
+
+120
+
+121
+
+122
+
+123
+
+124
+
+border-radius: 3px;
+
+font-size: 16px;
+
+border: 2px solid transparent; transition: 0.3s ease;
+
+I
+
+4
+
+B
+
+> OUTLINE
+
+> TIMELINE
+
+X
+
+ΘΟΛΟ ΤΟ
+
+Ln 124, Col 1 Spaces: 4 UTF-8 LF CSS Port: 5500 Q
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chrome File Edit View History Bookmarks Profiles Tab Window Help
+
+← →
+
+login-tuto
+
+08
+
+EXPLORER
+
+me
+
+<> index.html
+
+#style.css X
+
+background.jpg
+
+✓ LOGIN-TUTO
+
+#style.css > .register
+
+background.jpg
+
+111
+
+button {
+
+115
+
+>> index.html
+
+border: none;
+
+116
+
+# style.css
+
+padding: 11px 19px;
+
+117
+
+cursor: pointer;
+
+118
+
+119
+
+120
+
+121
+
+border-radius: 3px;
+
+font-size: 16px;
+
+border: 2px solid transparent;
+
+transition: 0.3s ease;
+
+705
+
+122
+
+}
+
+123
+
+124
+
+button:hover {
+
+125
+
+color:
+
+126
+
+border-color:
+
+#fff;
+
+127
+
+background: rgb(32, 30, 30);
+
+128
+
+129
+
+130
+
+.register {
+
+131
+
+text-align: center;
+
+132
+
+margin-top: 29px;
+
+133
+
+color: #fff;
+
+134
+
+}
+
+4
+
+> OUTLINE
+
+> TIMELINE
+
+* ΘΟΔΟ Ο
+
+Ln 134, Col 2 Spaces: 4 UTF-8 LF CSS Port: 5500
+
+MAY
+
+5
+
+tv
