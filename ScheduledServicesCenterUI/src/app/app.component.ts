@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,WebsiteInterfaceComponent,SectorComponent,LoginComponent],
-  template: `<app-website-interface></app-website-interface>`,
+  template: `<app-sector></app-sector>`,
   styleUrl: './app.component.css'
 })
 export class AppComponent {

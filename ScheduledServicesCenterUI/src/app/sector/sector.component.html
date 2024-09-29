@@ -4,12 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Juice Scheduled Services website">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.72.0">
-    <title>Album example · Bootstrap</title>
-
-    <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/album/">
+    <title>Juice Scheduled Services</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
@@ -20,27 +18,26 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+    <!-- Header Section -->
     <header>
         <div class="collapse bg-dark" id="navbarHeader">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-md-7 py-4">
                         <h4 class="text-white">About</h4>
-                        <p class="text-muted">Add some information about the album below, the author, or any other
-                            background
-                            context. Make it a few sentences long so folks can pick up some informative tidbits. Then,
-                            link them off
-                            to some social networking sites or contact information.</p>
+                        <p class="text-muted">We offer a variety of services, choose the sector that best suits your
+                            needs and book your appointment with ease.</p>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
                         <h4 class="text-white">Contact</h4>
                         <ul class="list-unstyled">
                             <li><a href="#" class="text-white">Follow on Twitter</a></li>
                             <li><a href="#" class="text-white">Like on Facebook</a></li>
-                            <li><a href="#" class="text-white">Email me</a></li>
+                            <li><a href="#" class="text-white">Email us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -49,13 +46,7 @@
         <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2"
-                        viewBox="0 0 24 24">
-                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                        <circle cx="12" cy="13" r="4" />
-                    </svg>
-                    <strong>Album</strong>
+                    <strong>Juice Services</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,52 +56,101 @@
         </div>
     </header>
 
+    <!-- Main Section -->
     <main>
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="font-weight-light" id="h1-des">Juice Scheduled Services website</h1>
-                    <p class="lead text-muted">What type of service do you need?
-                        <br>
-                        We offer a variety of services, choose the sector that best suits your needs and book your
-                        appointment with ease.
-                    </p>
+                    <h1 class="font-weight-light" id="h1-des">Juice Scheduled Services</h1>
+                    <p class="lead text-muted">We offer a variety of services. Choose the sector that best suits your
+                        needs and book your appointment with ease.</p>
                     <br>
-                    <label id="lable-search">Search</label>
-                    <input type="text" id="input-search">
+                    <label id="label-search">Search</label>
+                    <input type="search" id="input-search" class="form-control" placeholder="Search services...">
                 </div>
             </div>
         </section>
 
+        <!-- Dynamic Cards Section -->
         <div class="album py-5 bg-light">
             <div class="container">
                 <div class="row">
-                    <!-- 
-                    عند انشاء 
-                     foreach 
-                     يجب علينا وضع بدل هذه الارقام 
-                     منشان يصير ديناميكي 
-                     يعني عملية رياضية 
-                      -->
-                    <div class="col-12 col-sm-6 col-md-4">
+                    <!-- Card 1 -->
+                    <div class="col-12 col-sm-12 col-md-4">
                         <div class="card shadow-sm text-center">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" />
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
+                            <img src="assets/images/1.jpg" class="bd-placeholder-img card-img-top"
+                                alt="Service Thumbnail" width="100%" height="225">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional
-                                    content. This content is a little bit longer.</p>
+                                <h5 class="card-title">Medical sector</h5>
+                                <p class="card-text">The medical sector encompasses a wide range of services and
+                                    industries dedicated to maintaining and improving health. It includes hospitals,
+                                    clinics, healthcare professionals, pharmaceuticals, and medical technologies,
+                                    all working together to provide essential care and treatment to individuals.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                                     </div>
-                                    <small class="text-muted">9 mins</small>
+                                    <small class="text-muted">9 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <div class="card shadow-sm text-center">
+                            <img src="assets/images/BackgroundWebsite.jpg" class="bd-placeholder-img card-img-top"
+                                alt="Service Thumbnail" width="100%" height="225">
+                            <div class="card-body">
+                                <h5 class="card-title">Service Title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <div class="card shadow-sm text-center">
+                            <img src="assets/images/BackgroundWebsite.jpg" class="bd-placeholder-img card-img-top"
+                                alt="Service Thumbnail" width="100%" height="225">
+                            <div class="card-body">
+                                <h5 class="card-title">Service Title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <div class="card shadow-sm text-center">
+                            <img src="assets/images/BackgroundWebsite.jpg" class="bd-placeholder-img card-img-top"
+                                alt="Service Thumbnail" width="100%" height="225">
+                            <div class="card-body">
+                                <h5 class="card-title">Service Title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins ago</small>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +158,21 @@
                 </div>
             </div>
         </div>
+
     </main>
 </body>
-
+<footer>
+    <div class="footer-message">
+        <h4>If you do not find what meets your needs, we sincerely apologize. <br>Thank you for visiting us</h4>
+        <br>
+        <h3 id="Contact">Contact us</h3>
+    </div>
+    <div class="al-ce">
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-google"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-skype"></a>
+        <a href="#" class="fa fa-whatsapp"></a>
+    </div>
+</footer>
 </html>
