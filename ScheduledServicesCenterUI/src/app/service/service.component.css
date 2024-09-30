@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css');
+
+.custom-select-container {
+    width: 200px;
+    position: relative;
+}
+
+.custom-select {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    border: 2px solid #181717;
+    border-radius: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.custom-select:hover {
+    border-color: #8e44ad;
+}
+
+.custom-select-container::after {
+    content: '\25BC';
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #151416;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.custom-radio:hover {
+    border-color: #151416;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+.custom-radio .radio-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #151416;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.custom-radio input[type="radio"]:checked+.radio-circle {
+    background-color: #151416;
+}
+
+.custom-radio span {
+    font-size: 16px;
+    color: #333;
+}
+
+.date-input {
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.date-input:focus {
+    border-color: black;
+    box-shadow: 0 0 5px black;
+}
+
+.choose {
+    font-weight: 600;
+    font-size: 23px;
+    font-style: italic
+}
+
+.form-time {
+    background-color: #a2a1a1;
+    border-radius: 10px;
+}
+
+.select-time {
+    font-size: 23px;
+    padding: 10px;
+}

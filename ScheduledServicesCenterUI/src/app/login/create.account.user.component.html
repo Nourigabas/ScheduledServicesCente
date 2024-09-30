@@ -1,31 +1,40 @@
 <body>
     <div class="container">
-        <form action="#">
-            <h2>login</h2>
-            <div class="input-space">
-                <input type="text" required>
-                <label for="Enter your email"></label>
+        <form action="#" style="display: flex; flex-direction: column; align-items: center;">
+            <h2>Register</h2>
+            <h2>Account user</h2>
+            <div class="input-space" style="width: 100%; margin-bottom: 15px;">
+                <input type="text" required placeholder="Full Name">
+                <span class="span-lable">Full Name</span>
             </div>
-            <div class="input-space">
-                <input type="password" required>
-                <label for="Enter your password"></label>
+            
+            <div class="input-space" style="width: 100%; margin-bottom: 15px;">
+                <input type="datetime-local" required   >
+                <span class="span-lable">Date of birth</span>
             </div>
-            <div class="IsOwner">
-                <label for="OwnerAccount">
-                    <input type="checkbox" id="OwnerAccount">
-                    <p>
-                        Owner Account
-                    </p>
-                </label>
-                <a href="#">forgot password</a>
+
+            <div class="input-space" style="width: 100%; margin-bottom: 15px;">
+                <input type="text" required placeholder="Phone number">
+                <span class="span-lable">Gmail</span>
             </div>
-            <button type="submit">login</button>
-            <div class="register">
-                <p>
-                    Don't have an account? k 
-                    <a href="#">Register</a>
-                </p>
+
+            <div class="input-space" style="width: 100%; margin-bottom: 15px;">
+                <input type="text" required placeholder="Username">
+                <span class="span-lable">Username</span>
             </div>
+
+            <div class="input-space" style="width: 100%; margin-bottom: 15px;">
+                <input type="password" required placeholder="password">
+                <span class="span-lable">Password</span>
+            </div>
+
+
+            <div class="input-space" style="width: 100%; margin-bottom: 15px;">
+                <input type="password" required placeholder="Confirm password">
+                <span class="span-lable">Confirm password</span>
+            </div>
+            <br>
+            <button type="submit">Register</button>
         </form>
     </div>
 </body>

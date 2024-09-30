@@ -18,10 +18,10 @@ body::before {
     content: "";
     width: 100%;
     height: 100%;
-    background: src("src/assets/images/BackgroundWebsite.jpg"), #000;
+    background: url("./BackgroundWebsite.jpg"), #000;
     background-position: center;
     background-size: cover;
-    filter: blur(8px); 
+    filter: blur(8px);
     z-index: -1;
 }
 
@@ -34,7 +34,7 @@ body::before {
     border: 2px solid rgb(188, 185, 185);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(9px);
-    
+
 }
 
 form {
@@ -57,12 +57,12 @@ h2 {
 
 
 
-.span-lable
-{
+.span-lable {
     color: #f0f0f0;
-     font-style: italic;
-      font-size: 20px;
+    font-style: italic;
+    font-size: 20px;
 }
+
 .input-space input {
     width: 100%;
     height: 41px;

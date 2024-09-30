@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { SectorComponent } from '../sector/sector.component';
+import { AppointmentComponent } from '../appointment/appointment.component';
 
 @Component({
-  selector: 'app-category.service',
+  selector: 'app-categoryservice',
   standalone: true,
-  imports: [],
+  imports: [AppointmentComponent],
   templateUrl: './category.service.component.html',
   styleUrl: './category.service.component.css'
 })
