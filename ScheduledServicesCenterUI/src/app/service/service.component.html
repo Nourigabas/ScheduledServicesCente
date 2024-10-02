@@ -1,138 +1,86 @@
-<div class="container">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <br>
-                <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-                    <div class="col-md-6 px-0">
-                        <h1 class="display-4 font-italic">Nouri Esaa Gabas</h1>
+<body>
+    <div class="container">
+        <header class="profile-header">
+            <h1>Nouri Esaa Gabas</h1>
+            <p><i class='fas fa-briefcase'></i> Job: Dentist</p>
+            <p><i class='fas fa-map-marker-alt'></i> Location: Syria, Aleppo, Clock Square</p>
+            <p><i class='fas fa-phone'></i> Phone: +9635425896</p>
+            <p>
+                <i class='fas fa-envelope'></i>
+                Email: <a href="mailto:noury@example.com" id="emailstyle">nourym</a>
+            </p>
 
-                        <p class="lead my-3">Work : dentist
-                            <br>location : Syria,Idleb,Clock Square
-                            <br>Phone : +963945254996
-                            <br>Gmail: <a href="mailto:nouryman999@gmail.com">nouryman999gmail.com</a>
 
-                        </p>
+        </header>
 
+
+
+        <section class="booking-section">
+            <h2>Choose the period for which you want to display available times</h2>
+            <select name="period">
+                <option value="1_day">One ​​day</option>
+                <option value="1_week">Week</option>
+                <option value="1_month">Month</option>
+            </select>
+
+            <div class="time-selection">
+                <h3>Choose the time that suits you</h3>
+
+                <!-- AM Section -->
+                <div class="time-group">
+                    <h4>AM</h4>
+                    <div class="time-slots">
+                        <label><input type="radio" name="time" value="10am"> 10:00 AM</label>
+                        <label><input type="radio" name="time" value="11am"> 11:00 AM</label>
+                        <label><input type="radio" name="time" value="12pm"> 12:00 PM</label>
                     </div>
                 </div>
-                <p class="choose">Choose the period in which you want to
-                    display the available times :)</p>
-                <div class="custom-select-container">
-                    <select class="custom-select">
-                        <option value="1 day">1 day</option>
-                        <option value="1 week">1 week</option>
-                        <option value="1 month">1 month</option>
-                    </select>
+
+                <!-- PM Section -->
+                <div class="time-group">
+                    <h4>PM</h4>
+                    <div class="time-slots">
+                        <label><input type="radio" name="time" value="5pm"> 5:00 PM</label>
+                        <label><input type="radio" name="time" value="6pm"> 6:00 PM</label>
+                        <label><input type="radio" name="time" value="7pm"> 7:00 PM</label>
+                    </div>
                 </div>
-                <br>
-
-                <body class="form-time">
-
-                    <h2 class="select-time">Choose the time that suits you .</h2>
-                    <div class="radio-group">
-                        <div class="section-title">AM</div>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="10:00 AM">
-                            <div class="radio-circle"></div>
-                            <span>10:00 AM</span>
-                        </label>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="11:00 AM">
-                            <div class="radio-circle"></div>
-                            <span>11:00 AM</span>
-                        </label>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="12:00 PM">
-                            <div class="radio-circle"></div>
-                            <span>12:00 PM</span>
-                        </label>
-                    </div>
-                    <br>
-                    <div class="radio-group">
-                        <div class="section-title">PM</div>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="1:00 PM">
-                            <div class="radio-circle"></div>
-                            <span>30/9/2024 -- 5:00 PM</span>
-                        </label>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="2:00 PM">
-                            <div class="radio-circle"></div>
-                            <span>30/9/2024 -- 5:00 PM</span>
-                        </label>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="3:00 PM">
-                            <div class="radio-circle"></div>
-                            <span>30/9/2024 -- 5:00 PM</span>
-                        </label>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="4:00 PM">
-                            <div class="radio-circle"></div>
-                            <span>30/9/2024 -- 5:00 PM</span>
-                        </label>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="5:00 PM">
-                            <div class="radio-circle"></div>
-                            <span>30/9/2024 -- 5:00 PM</span>
-                        </label>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="6:00 PM">
-                            <div class="radio-circle"></div>
-                            <span>30/9/2024 -- 5:00 PM</span>
-                        </label>
-                        <label class="custom-radio">
-                            <input type="radio" name="appointment" value="7:00 PM">
-                            <div class="radio-circle"></div>
-                            <span>30/9/2024 -- 5:00 PM</span>
-                        </label>
-                    </div>
-                </body>
-                <br>
-                <p class="choose">Also display the available times on a
-                    date that suits you
-                    Choose the date that suits you :)
-                </p>
-                <br>
-                <input type="date" class="date-input">
             </div>
-            <div class="form-time">
-                <h2 class="select-time">Choose the time that suits you .</h2>
-                <div class="radio-group">
-                    <div class="section-title">AM</div>
-                    <label class="custom-radio">
-                        <input type="radio" name="appointment" value="10:00 AM">
-                        <div class="radio-circle"></div>
-                        <span>10:00 AM</span>
-                    </label>
-                    <label class="custom-radio">
-                        <input type="radio" name="appointment" value="11:00 AM">
-                        <div class="radio-circle"></div>
-                        <span>11:00 AM</span>
-                    </label>
-                    <label class="custom-radio">
-                        <input type="radio" name="appointment" value="12:00 PM">
-                        <div class="radio-circle"></div>
-                        <span>12:00 PM</span>
-                    </label>
+
+
+            <h2>You can choose a specific date to show available appointments</h2>
+            <input type="date" name="date">
+            <div class="time-selection">
+                <h3>Choose the time that suits you</h3>
+
+                <!-- AM Section -->
+                <div class="time-group">
+                    <h4>AM</h4>
+                    <div class="time-slots">
+                        <label><input type="radio" name="time" value="10am"> 10:00 AM</label>
+                        <label><input type="radio" name="time" value="11am"> 11:00 AM</label>
+                        <label><input type="radio" name="time" value="12pm"> 12:00 PM</label>
+                    </div>
                 </div>
-                <br>
+
+                <!-- PM Section -->
+                <div class="time-group">
+                    <h4>PM</h4>
+                    <div class="time-slots">
+                        <label><input type="radio" name="time" value="5pm"> 5:00 PM</label>
+                        <label><input type="radio" name="time" value="6pm"> 6:00 PM</label>
+                        <label><input type="radio" name="time" value="7pm"> 7:00 PM</label>
+                    </div>
+                </div>
             </div>
-        </div>
+
+        </section>
+
+        <td>
+            <button class="reservation">
+                <i class="fa fa-calendar" aria-hidden="true"></i> Book an appointment
+            </button>
+        </td>
+
     </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<footer>
-    <br>
-</footer>
+</body>

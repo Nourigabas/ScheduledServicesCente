@@ -1,16 +1,17 @@
 * {
     padding: 0;
-    margin: 0;
+    margin: 0px 0px;
     box-sizing: border-box;
 }
 
 body {
     display: flex;
     align-items: center;
-    min-height: 100vh;
-    width: 100%;
     justify-content: center;
-    padding: 0 10px;
+    height: 100vh;
+    /* تعيين الارتفاع إلى 100% من ارتفاع نافذة العرض */
+    overflow: hidden;
+    /* منع ظهور السكرول */
 }
 
 body::before {
@@ -18,12 +19,15 @@ body::before {
     content: "";
     width: 100%;
     height: 100%;
-    background: url("./BackgroundWebsite.jpg"), #000;
-    background-position: center;
+    background: url("./BackgroundWebsite.jpg") no-repeat center center;
+    /* تحديد الصورة وعدم تكرارها */
     background-size: cover;
+    /* جعل الصورة تغطي كامل الواجهة */
     filter: blur(8px);
     z-index: -1;
 }
+
+
 
 
 .container {
@@ -32,15 +36,37 @@ body::before {
     padding: 32px;
     text-align: center;
     border: 2px solid rgb(188, 185, 185);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
 
 }
 
 form {
     display: flex;
     flex-direction: column;
+    max-height: 700px;
+    overflow-y: scroll;
+    padding-right: 10px;
 }
+
+form::-webkit-scrollbar {
+    width: 8px;
+}
+
+form::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+form::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+form::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+
 
 h2 {
     font-size: 2rem;
@@ -147,10 +173,47 @@ button:hover {
     color: #ffffff;
     border-color: #fff;
     background: rgb(32, 30, 30);
+    border-radius: 10px;
 }
 
 .register {
     text-align: center;
     margin-top: 29px;
     color: #fff;
+}
+
+.input-info {
+    margin-bottom: 15px;
+}
+
+#col-wid {
+    width: 48%;
+}
+
+#form-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#fullname {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#form-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#page-register {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.7;
 }

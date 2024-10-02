@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-sector',
   standalone: true,
   imports: [],
-  templateUrl: './sector.component.html',
+  templateUrl: './create.sector.html',
   styleUrl: './sector.component.css'
 })
 export class SectorComponent {

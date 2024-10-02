@@ -55,6 +55,8 @@ namespace Data
            {
                Id = Guid.Parse("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"),
                Description = "Politics news in Syria",
+               TypeSector= "medicine",
+               IsAccepted=true,
                IsDeleted = false
            });
 

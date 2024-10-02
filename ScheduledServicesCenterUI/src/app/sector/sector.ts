@@ -5,6 +5,8 @@ import { CategoryService } from "../category.service/category.service";
 
 export interface Sector {
     Id: Guid;
+    TypeSector:string;
+    IsAccept:boolean;
     Description: string;
     IsDeleted: boolean ;
     ServiceOwners: ServiceOwner[];

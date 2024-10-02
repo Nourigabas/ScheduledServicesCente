@@ -6,7 +6,7 @@ import { AppointmentComponent } from '../appointment/appointment.component';
   selector: 'app-categoryservice',
   standalone: true,
   imports: [AppointmentComponent],
-  templateUrl: './category.service.component.html',
+  templateUrl: './create.category.service.html',
   styleUrl: './category.service.component.css'
 })
 export class CategoryServiceComponent {

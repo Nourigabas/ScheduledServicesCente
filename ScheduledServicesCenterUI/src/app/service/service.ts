@@ -16,7 +16,7 @@ export interface Service{
     CategoryServiceId:Guid;
     CategoryService:CategoryService;
     Appointments:Appointment[];
-    Reservations:Reservation[];
+    Reservations:Reservation[]|null;
     SectorId:Guid;
     Sector:Sector;
 
