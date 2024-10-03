@@ -7,13 +7,24 @@ import { CategoryServiceComponent } from './category.service/category.service.co
 import { ServiceComponent } from './service/service.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { AppointmentComponent } from "./appointment/appointment.component";
+import { ServiceOwnerComponent } from './service.owner/service.owner.component';
+import { UserComponent } from "./user/user.component";
+import { CreateCategoryServiceComponent } from './create.category.service/create.category.service.component';
+import { CreateAccountUserComponent } from './create.account.user/create.account.user.component';
+import { CreateAccountOwnerComponent } from './create.account.owner/create.account.owner.component';
+import { CreateSectorComponent } from './create.sector/create.sector.component';
+import { CreateSeviceComponent } from './create.sevice/create.sevice.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, WebsiteInterfaceComponent, SectorComponent, LoginComponent, CategoryServiceComponent, ServiceComponent, ReservationComponent, AppointmentComponent],
+  imports: [RouterOutlet,CreateSeviceComponent, CreateSectorComponent, CreateAccountOwnerComponent, CreateAccountUserComponent, CreateCategoryServiceComponent, ServiceOwnerComponent, WebsiteInterfaceComponent, SectorComponent, CategoryServiceComponent, ServiceComponent, ReservationComponent, AppointmentComponent, UserComponent, LoginComponent],
   template: `
-<app-service></app-service  >
+<app-categoryservice></app-categoryservice>
+
+
+
+
   `,
   styleUrl: './app.component.css'
 })

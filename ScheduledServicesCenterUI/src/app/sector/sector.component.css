@@ -1,23 +1,4 @@
 
-#h1-des {
-    font-style: italic;
-}
-
-#lable-search {
-    margin-right: 10px;
-    font-style: italic;
-    font-size: 20px;
-}
-
-#input-search {
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin-left: 10px;
-}
-
-#input-search:hover {
-    background-color: silver;
-}
 
 .footer-message {
     background-color: #f8f9fa;
@@ -47,8 +28,6 @@
     opacity: 0.7;
 }
 
-
-
 .fa-google {
     background: #dd4b39;
     color: white;
@@ -58,8 +37,6 @@
     background: #007bb5;
     color: white;
 }
-
-
 
 .fa-instagram {
     background: #125688;
@@ -86,21 +63,11 @@
 #Contact {
     color: rgba(0, 0, 0, 0.451);
 }
+
 .link-no-style {
     text-decoration: none; 
     color: inherit; 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 * {
     padding: 0;
@@ -108,179 +75,4 @@
     box-sizing: border-box;
 }
 
-.body-create {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    flex-direction: row; /* ترتيب النماذج عموديا */
-    gap: 20px; /* تباعد بين النماذج */
-
-
-}
-
-.con {
-
-    width: 415px;
-    border-radius: 9px;
-    padding: 32px;
-    text-align: center;
-    border: 2px solid rgb(188, 185, 185);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    border-width: 3px;
-}
-
-
-
-.form-create {
-    display: flex;
-    flex-direction: column;
-    max-height: 825px;
-    padding-right: 10px;
-}
-
-.body-create::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: url("./BackgroundWebsite.jpg") no-repeat center center;
-    background-size: cover;
-    filter: blur(8px);
-}
-
-
-.input-space-create {
-    position: relative;
-    border-bottom: 3px solid white;
-    margin: 14px 0;
-}
-
-.span-lable-create {
-    color: #f0f0f0;
-    font-style: italic;
-    font-size: 20px;
-}
-
-.input-space-create input {
-    width: 100%;
-    height: 41px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    color: white;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.input-space-create label {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.15s ease;
-}
-
-.input-space-create input:focus-label .input-space-create input:valid-label {
-    font-size: 0.9rem;
-    top: 10px;
-    transform: translateY(-120%);
-}
-
-
-
-
-
-
-.wid-bor {
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.wid-bor::placeholder {
-    color: white;
-    opacity: 0.5;
-}
-
-.button-create {
-    background: #100000;
-    color: #ffffff;
-    font-weight: 600;
-    border: none;
-    padding: 11px 19px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 16px;
-    border: 2px solid transparent;
-    transition: 0.3s ease;
-}
-
-.button-create:hover {
-    color: #ffffff;
-    border-color: #fff;
-    background: rgb(32, 30, 30);
-    border-radius: 15px;
-}
-
-.title {
-    margin-bottom: 10px;
-    color: white;
-    font-size: 40px;
-}
-
-
-
-
-
-
-
-
-
-
-
-#form-register {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#fullname {
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-
-
-
-
-
-
-
-
-
-.select-item {
-    display: flex;
-    background: transparent;
-    color: white;
-    width: 100%;
-    height: 41px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-}
-
-.select-item option[value=""] {
-    color: white;
-    opacity: 0.5;
-}
-.select-item:focus {
-    color: black; 
-}
 

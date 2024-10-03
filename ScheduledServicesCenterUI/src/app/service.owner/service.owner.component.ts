@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-service.owner',
+  selector: 'app-serviceowner',
   standalone: true,
   imports: [],
   templateUrl: './service.owner.component.html',

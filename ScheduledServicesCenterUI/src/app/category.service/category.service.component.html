@@ -1,5 +1,5 @@
 <body>
-    <div class="container">
+    <div class="container text-center">
         <br>
         <div class="nav-scroller py-1 mb-2">
             <nav class="nav d-flex justify-content-between">
@@ -20,15 +20,15 @@
         <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
             <div class="col-md-6 px-0">
                 <!--هنا سيتم وضع نوع القسم -->
-                <h1 class="display-4 font-italic">type sector</h1>
+                <h1 class="display-4 ">type sector</h1>
                 <!--هنا سيتم وضع وصف القطاع-->
-                <p class="lead my-3">description sector.</p>
+                <p class="lead my-3" id="des-sec">description sector.</p>
             </div>
         </div>
         <!-- صف جديد يحتوي على عمودين -->
-        <div class="row mb-2">
+        <div class="d-flex gap-3 mb-2">
             <!-- العمود الأول -->
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div
                     class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static" style="height: 200px; overflow-y: auto;">
@@ -46,7 +46,7 @@
             </div>
 
             <!-- العمود الثاني -->
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="row g-0">
                     <div class="col-md-12">
                         <table class="table table-hover">
@@ -57,6 +57,7 @@
                                     <th>Site</th>
                                     <th>Evaluation</th>
                                     <th>Book</th>
+                                    <th>Details</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,6 +81,14 @@
                                             <i class="fa fa-calendar" aria-hidden="true"></i> Book an appointment
                                         </button>
                                     </td>
+
+
+                                    <td>
+                                        <button class="button reservation">
+                                            <i class="fas fa-info-circle"></i> View details
+                                        </button>
+                                    </td>
+
                                 </tr>
                                 <tr>
                                     <td>2</td>
@@ -95,6 +104,11 @@
                                             <i class="fa fa-calendar" aria-hidden="true"></i> Book an appointment
                                         </button>
                                     </td>
+                                    <td>
+                                        <button class="button reservation">
+                                            <i class="fas fa-info-circle"></i> View details
+                                        </button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
@@ -108,6 +122,11 @@
                                     <td>
                                         <button class="button reservation">
                                             <i class="fa fa-calendar" aria-hidden="true"></i> Book an appointment
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="button reservation">
+                                            <i class="fas fa-info-circle"></i> View details
                                         </button>
                                     </td>
                                 </tr>
@@ -131,9 +150,9 @@
         <br>
 
         <!-- صف جديد يحتوي على عمودين -->
-        <div class="row mb-2">
+        <div class="d-flex gap-3 mb-2">
             <!-- العمود الأول -->
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div
                     class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static" style="height: 200px; overflow-y: auto;">
@@ -162,7 +181,7 @@
 
 
             <!-- العمود الثاني -->
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="row g-0">
                     <div class="col-md-12">
                         <table class="table table-hover">
@@ -173,6 +192,7 @@
                                     <th>Site</th>
                                     <th>Evaluation</th>
                                     <th>Book</th>
+                                    <th>Details</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -190,6 +210,11 @@
                                             <i class="fa fa-calendar" aria-hidden="true"></i> Book an appointment
                                         </button>
                                     </td>
+                                    <td>
+                                        <button class="button reservation">
+                                            <i class="fas fa-info-circle"></i> View details
+                                        </button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
@@ -203,6 +228,11 @@
                                     <td>
                                         <button class="button reservation">
                                             <i class="fa fa-calendar" aria-hidden="true"></i> Book an appointment
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="button reservation">
+                                            <i class="fas fa-info-circle"></i> View details
                                         </button>
                                     </td>
                                 </tr>
@@ -220,6 +250,11 @@
                                             <i class="fa fa-calendar" aria-hidden="true"></i> Book an appointment
                                         </button>
                                     </td>
+                                    <td>
+                                        <button class="button reservation">
+                                            <i class="fas fa-info-circle"></i> View details
+                                        </button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
@@ -233,6 +268,11 @@
                                     <td>
                                         <button class="button reservation">
                                             <i class="fa fa-calendar" aria-hidden="true"></i> Book an appointment
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="button reservation">
+                                            <i class="fas fa-info-circle"></i> View details
                                         </button>
                                     </td>
                                 </tr>
@@ -250,6 +290,11 @@
                                             <i class="fa fa-calendar" aria-hidden="true"></i> Book an appointment
                                         </button>
                                     </td>
+                                    <td>
+                                        <button class="button reservation">
+                                            <i class="fas fa-info-circle"></i> View details
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -265,10 +310,13 @@
 
 
     </div>
-    <footer class="blog-footer" style="margin: 0px;">
-        <p>These are all the departments in this sector --- medical, for example ---</p>
-        <p>
-            <a href="#">Back to sections</a>
-        </p>
-    </footer>
 </body>
+<footer class="blog-footer" style="margin: 0px;">
+    <p>These are all the departments in this sector --- medical, for example ---</p>
+    <p>
+        <a href="#">Back to sections</a>
+    </p>
+</footer>
+
+
+<br>

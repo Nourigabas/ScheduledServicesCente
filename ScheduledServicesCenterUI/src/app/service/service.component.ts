@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-service',
   standalone: true,
   imports: [],
-  templateUrl: './create.service.html',
+  templateUrl: './service.component.html',
   styleUrl: './service.component.css'
 })
 export class ServiceComponent {
