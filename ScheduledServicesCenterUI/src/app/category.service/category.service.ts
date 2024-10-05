@@ -5,7 +5,8 @@ import { Service } from '../service/service';
 export interface CategoryService {
   Id: Guid;
   Name: string;
-  IsDelete: boolean; // تعيين القيمة الافتراضية هنا
+  UrlBackgroundImage:string;
+  IsDelete: boolean; 
   SectorId: Guid;
   Sector: Sector;
   Services: Service[];

@@ -22,7 +22,7 @@ import { CategoryServiceDetailsComponent } from './category.service.details/cate
   standalone: true,
   imports: [RouterOutlet,CategoryServiceDetailsComponent,OwnreServiceDetailsComponent,CreateSeviceComponent, CreateSectorComponent, CreateAccountOwnerComponent, CreateAccountUserComponent, CreateCategoryServiceComponent, ServiceOwnerComponent, WebsiteInterfaceComponent, SectorComponent, CategoryServiceComponent, ServiceComponent, ReservationComponent, AppointmentComponent, UserComponent, LoginComponent],
   template: `
-<app-user></app-user>
+<app-createcategoryservice></app-createcategoryservice>
 
 
 
