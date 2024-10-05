@@ -14,13 +14,15 @@ import { CreateAccountUserComponent } from './create.account.user/create.account
 import { CreateAccountOwnerComponent } from './create.account.owner/create.account.owner.component';
 import { CreateSectorComponent } from './create.sector/create.sector.component';
 import { CreateSeviceComponent } from './create.sevice/create.sevice.component';
+import { OwnreServiceDetailsComponent } from './ownre.service.details/ownre.service.details.component';
+import { CategoryServiceDetailsComponent } from './category.service.details/category.service.details.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CreateSeviceComponent, CreateSectorComponent, CreateAccountOwnerComponent, CreateAccountUserComponent, CreateCategoryServiceComponent, ServiceOwnerComponent, WebsiteInterfaceComponent, SectorComponent, CategoryServiceComponent, ServiceComponent, ReservationComponent, AppointmentComponent, UserComponent, LoginComponent],
+  imports: [RouterOutlet,CategoryServiceDetailsComponent,OwnreServiceDetailsComponent,CreateSeviceComponent, CreateSectorComponent, CreateAccountOwnerComponent, CreateAccountUserComponent, CreateCategoryServiceComponent, ServiceOwnerComponent, WebsiteInterfaceComponent, SectorComponent, CategoryServiceComponent, ServiceComponent, ReservationComponent, AppointmentComponent, UserComponent, LoginComponent],
   template: `
-<app-categoryservice></app-categoryservice>
+<app-user></app-user>
 
 
 

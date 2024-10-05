@@ -7,8 +7,6 @@ import { AppointmentComponent } from '../appointment/appointment.component';
   standalone: true,
   imports: [AppointmentComponent],
   templateUrl: './category.service.component.html',
-  styleUrl: './category.service.component.css'
+  styleUrl: './category.service.component.css',
 })
-export class CategoryServiceComponent {
-
-}
+export class CategoryServiceComponent {}

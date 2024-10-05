@@ -1,78 +1,124 @@
 
-
 .footer-message {
-    background-color: #f8f9fa;
-    border-top: 1px solid #dee2e6;
-    padding: 20px;
-    text-align: center;
-    margin-top: 30px;
-    font-style: italic;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
+  font-style: italic;
 }
 
 .footer-message h4 {
-    color: #6c757d;
-    font-weight: 400;
+  color: #6c757d;
+  font-weight: 400;
 }
 
 .fa {
-    border-radius: 15px;
-    padding: 10px;
-    font-size: 30px;
-    width: 50px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 5px;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 5px;
 }
 
 .fa:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .fa-google {
-    background: #dd4b39;
-    color: white;
+  background: #dd4b39;
+  color: white;
 }
 
 .fa-linkedin {
-    background: #007bb5;
-    color: white;
+  background: #007bb5;
+  color: white;
 }
 
 .fa-instagram {
-    background: #125688;
-    color: white;
+  background: #125688;
+  color: white;
 }
 
 .fa-whatsapp {
-    background: #4ea968;
-    color: white;
+  background: #4ea968;
+  color: white;
 }
 
 .fa-skype {
-    background: #00aff0;
-    color: white;
+  background: #00aff0;
+  color: white;
 }
 
 .al-ce {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 #Contact {
-    color: rgba(0, 0, 0, 0.451);
+  color: rgba(0, 0, 0, 0.451);
 }
 
 .link-no-style {
-    text-decoration: none; 
-    color: inherit; 
+  text-decoration: none;
+  color: inherit;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.account-btn {
+  border: 3px solid white;
+  border-radius: 2px;
+}
+.account-btn:hover {
+  border: 3px solid white;
+  border-radius: 12px;
+}
+.account-btn:hover::after {
+  content: "My Account";
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+  font-size: 14px; /* حجم النص */
+  white-space: nowrap; /* لضمان عدم انقطاع النص */
+  color: black;
+  background-color: white;
+  padding: 10px;
+  border: 3px solid black;
+  font-size: 17px;
+  border-radius: 8px;
+
+}
+.button {
+  background-color: white;
+  color: black;
+  padding: 0 14px 0 0;
+  display: inline-block;
+  font-size: 19px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  border-radius: 4px;
+  font-style: italic;
+  
+  
 }
 
+.reservation {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  float: right;
+}
 
+.reservation:hover {
+  background-color: #555555;
+  color: white;
+  border-radius: 15px;
+}
