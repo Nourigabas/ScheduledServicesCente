@@ -10,7 +10,7 @@ import { AppointmentComponent } from "./appointment/appointment.component";
 import { ServiceOwnerComponent } from './service.owner/service.owner.component';
 import { UserComponent } from "./user/user.component";
 import { CreateCategoryServiceComponent } from './create.category.service/create.category.service.component';
-import { CreateAccountUserComponent } from './create.account.user/create.account.user.component';
+import { CreateAccountUserComponent } from './create.user.account/create.account.user.component';
 import { CreateAccountOwnerComponent } from './create.account.owner/create.account.owner.component';
 import { CreateSectorComponent } from './create.sector/create.sector.component';
 import { CreateSeviceComponent } from './create.sevice/create.sevice.component';
