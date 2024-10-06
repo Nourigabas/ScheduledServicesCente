@@ -9,7 +9,7 @@
     <header class="masthead">
       <div class="container">
         <div class="col-lg-8 align-self-end">
-          <h1 id="welcom">Welcome to the Juice Scheduled Services website</h1>
+          <h1 style="font-size: 40px">Welcome to the Juice Scheduled Services website</h1>
           <hr class="divider" />
         </div>
         <p class="text-white-75 mb-5">
@@ -18,16 +18,15 @@
         </p>
         <br />
         <p class="text-white-75 mb-5">
-          To browse our available services, click Let's get started...!
+          Let's get started...!
         </p>
         <br /><br />
         <div class="d-flex justify-content-center">
-          <a
-            class="btn btn-primary btn-xl mx-2"
-            style="transform: scale(1.25); text-transform: none"
-          >
-            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            Let's get started
+          <a [routerLink]="['/login']" class="btn btn-primary btn-xl mx-2">
+            Login/ Sign in
+          </a>
+          <a [routerLink]="['/login']" class="btn btn-primary btn-xl mx-2">
+            Start As Guest
           </a>
         </div>
       </div>

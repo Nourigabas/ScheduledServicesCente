@@ -4,12 +4,9 @@
   box-sizing: border-box;
 }
 
-body,
-html {
-  height: 100%;
-  font-family: Arial, sans-serif;
+a{
+  margin: 10px;
 }
-
 .masthead {
   background: linear-gradient(
       to bottom,
@@ -68,22 +65,13 @@ hr.divider {
   width: 7rem;
 }
 
-hr.divider-light {
-  background-color: #fff;
-}
-
 .btn-xl {
-  padding: 1.25rem 2.25rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  border: none;
+  padding: 1.5rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 800;
   border-radius: 10rem;
 }
 
-#welcom {
-  font-size: 40px;
-}
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
   font-size: 18px;
