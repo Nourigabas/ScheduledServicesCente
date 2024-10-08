@@ -63,7 +63,7 @@ h6 {
   flex-wrap: nowrap;
   padding-bottom: 1rem;
   margin-top: -1px;
-  overflow-x: auto;
+  overflow: auto;
   text-align: center;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
@@ -142,12 +142,7 @@ h6 {
   box-sizing: border-box;
 }
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+
 
 .button {
   background-color: white;

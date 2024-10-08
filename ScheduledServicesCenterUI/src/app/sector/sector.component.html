@@ -1,138 +1,94 @@
-<link
-  rel="stylesheet"
-  href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-  integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
-  crossorigin="anonymous"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+  integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<body>
-  <!-- Header Section -->
-  <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <strong>Juice Services</strong>
-        </a>
-        <button
-          class="navbar-toggler account-btn"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarHeader"
-          aria-controls="navbarHeader"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fa fa-user"></i>
-        </button>
-      </div>
+<!-- Header Section -->
+<header>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <strong>Juice Services</strong>
+      </a>
+      <button class="navbar-toggler account-btn" type="button" data-toggle="collapse" data-target="#navbarHeader"
+        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-user"></i>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- Main Section -->
-  <main>
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="font-weight-light" id="h1-des">
-            Juice Scheduled Services
-          </h1>
-          <p class="lead text-muted">
-            We offer a variety of services. Choose the sector that best suits
-            your needs and book your appointment with ease.
-          </p>
-          <br />
-          <input
-            type="search"
-            id="input-search"
-            class="form-control"
-            placeholder="Search sectors..."
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- Dynamic Cards Section -->
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-          <a href="#" class="link-no-style">
-            <div
-              class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-            >
-              <div class="col-auto d-none d-lg-block">
-                <img
-                  src="assets/images/1.jpg"
-                  alt="Thumbnail"
-                  width="200"
-                  height="250"
-                  class="bd-placeholder-img"
-                />
-              </div>
-              <div
-                class="col p-4 d-flex flex-column position-static"
-                style="height: 200px; overflow-y: auto"
-              >
-                <h3 class="mb-0">medicine</h3>
-                <br />
-                <p class="card-text mb-auto">
-                  The dental sector specializes in the diagnosis and treatment
-                  of oral and dental diseases, and includes preventive and
-                  surgs. Specialissis and treatment of oral and dental diseases,
-                  and includes preventive and surgs. Specia
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="link-no-style">
-            <div
-              class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-            >
-              <div class="col-auto d-none d-lg-block">
-                <img
-                  src="assets/images/1.jpg"
-                  alt="Thumbnail"
-                  width="200"
-                  height="250"
-                  class="bd-placeholder-img"
-                />
-              </div>
-              <div
-                class="col p-4 d-flex flex-column position-static"
-                style="height: 200px; overflow-y: auto"
-              >
-                <h3 class="mb-0">medicine</h3>
-                <br />
-                <p class="card-text mb-auto">
-                  The dental sector specializes in the diagnosis and treatment
-                  of oral and dental diseases, and includes preventive and
-                  surgical care such as dental fillings, orthodontics, and gum
-                  surgery. This sector contributes to enhancing oral health by
-                  preventing caries and gum diseases and improving quality of
-                  life. The dental sector provides critical services to
-                  communities, addressing issues from minor cavities to complex
-                  surgeries. Specialists in this field play a vital role in
-                  maintaining overall public health.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <button class="button reservation">
-          <i class="fa fa-plus" ></i>
-          Add new service
-        </button>
-
-        <br />
-        <br />
-      </div>
+<!-- Main Section -->
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="font-weight-light" id="h1-des">
+        Juice Scheduled Services
+      </h1>
+      <p class="lead text-muted">
+        We offer a variety of services. Choose the sector that best suits
+        your needs and book your appointment with ease.
+      </p>
+      <br />
+      <input type="search" id="input-search" class="form-control" placeholder="Search sectors..." />
     </div>
-  </main>
-</body>
+  </div>
+</section>
+
+<!-- Dynamic Cards Section -->
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <a [routerLink]="['/category']" class="link-no-style">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col-auto d-lg-block">
+            <img src="/img/1.jpg" alt="Thumbnail" width="200" height="200" class="bd-placeholder-img" />
+          </div>
+          <div class="col p-4 d-flex flex-column position-static" style="height: 200px; overflow-y: auto">
+            <h3 class="mb-0">medicine</h3>
+            <br />
+            <p class="card-text mb-auto">
+              The dental sector specializes in the diagnosis and treatment
+              of oral and dental diseases, and includes preventive and
+              surgs. Specialissis and treatment of oral and dental diseases,
+              and includes preventive and surgs. Specia
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="link-no-style">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col-auto d-lg-block">
+            <img src="/img/1.jpg" alt="Thumbnail" width="200" height="200" class="bd-placeholder-img" />
+          </div>
+          <div class="col p-4 d-flex flex-column position-static" style="height: 200px; overflow-y: auto">
+            <h3 class="mb-0">medicine</h3>
+            <br />
+            <p class="card-text mb-auto">
+              The dental sector specializes in the diagnosis and treatment
+              of oral and dental diseases, and includes preventive and
+              surgical care such as dental fillings, orthodontics, and gum
+              surgery. This sector contributes to enhancing oral health by
+              preventing caries and gum diseases and improving quality of
+              life. The dental sector provides critical services to
+              communities, addressing issues from minor cavities to complex
+              surgeries. Specialists in this field play a vital role in
+              maintaining overall public health.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <button class="button reservation">
+      <i class="fa fa-plus"></i>
+      Add new service
+    </button>
+
+    <br />
+    <br />
+  </div>
+</div>
+
 <footer>
   <div class="footer-message">
     <h4>
