@@ -3,11 +3,11 @@
         <header class="profile-header">
             <h1>Nouri Esaa Gabas</h1>
             <p>
-                <i class="fas fa-industry"></i>
+                <i class="fa fa-industry"></i>
                 Medical
             </p>
             <p>
-                <i class="fas fa-tags"></i>
+                <i class="fa fa-tags"></i>
                 Dentistry
             </p>
         </header>
@@ -52,7 +52,7 @@
         <header class="profile-header">
             <h1 id="appointments-title">
                 Appointments
-                <i class="fas fa-calendar-alt"></i>
+                <i class="fa-solid fa-calendar-days"></i>
             </h1>
         </header>
         <table class="table-hover" id="equal-column-width">
@@ -121,18 +121,6 @@
             </tbody>
         </table>
 
-
-
-
-
-
-
-
-
-
-
-
-
         <br>
         <br>
         <br>
@@ -141,7 +129,7 @@
         <header class="profile-header">
             <h1>
                 Reservation
-                <i class="fas fa-calendar-check"></i>
+                <i class="fa-solid fa-calendar-check"></i>
             </h1>
         </header>
         <div class="table-reservation">
@@ -162,19 +150,14 @@
                 </ul>
             </div>
         </div>
-
-
-
-        <br>
-        <br>
-        <br>
-        <a href="#" class="btn-custom">
+        <br><br>
+        <a [routerLink]="['/category']" class="btn-custom">
             <i class="fa fa-arrow-left"></i>
             Back
           </a>
-          
-        
-
-
+        <a [routerLink]="['/service']" class="btn-custom" style="margin-left: 5px;">
+            <i class="fa fa-calendar"></i>
+            Book An Appointment
+          </a>
     </div>
 </body>

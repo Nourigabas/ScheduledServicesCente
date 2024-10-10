@@ -84,8 +84,6 @@
 .account-btn:hover::after {
   content: "My Account";
   position: absolute;
-  top: 100%;
-  transform: translateY(-50%);
   font-size: 14px; /* حجم النص */
   white-space: nowrap; /* لضمان عدم انقطاع النص */
   color: black;
@@ -94,7 +92,7 @@
   border: 3px solid black;
   font-size: 17px;
   border-radius: 8px;
-
+  transform: translate(-150%,140%);
 }
 .button {
   background-color: white;

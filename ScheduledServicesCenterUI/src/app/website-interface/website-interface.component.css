@@ -49,6 +49,7 @@ p {
   text-decoration: none;
   border-radius: 5px;
   font-size: 1.2rem;
+  border-color: #e64a19;
 }
 
 .btn:hover {
@@ -64,7 +65,7 @@ hr.divider {
   width: 7rem;
 }
 
-.btn-xl {
+.btn-l {
   padding: 1.5rem 2.5rem;
   font-size: 1.2rem;
   font-weight: 800;

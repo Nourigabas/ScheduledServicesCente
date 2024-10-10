@@ -12,7 +12,7 @@ body {
     overflow: hidden;
 }
 
-body::before {
+body::before{
     position: absolute;
     content: "";
     width: 100%;
@@ -20,7 +20,6 @@ body::before {
     background: url(/img/BackgroundWebsite.jpg) no-repeat center center;
     background-size: cover;
     filter: blur(8px);
-    z-index: -1;
 }
 
 

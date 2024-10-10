@@ -1,15 +1,16 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+
+.taphead{
+    font-size: 20px;
+    color: rgb(232, 166, 144);
 }
 
 body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-image: url(/img/BackgroundWebsite.jpg);
+    height: 100%;
+    width: 100%;
+    background-image: url(/img/BackgroundWebsite.jpg) no-repeat center center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,40 +29,23 @@ body::before {
 }
 
 .container {
-    width: 415px;
+    margin: 15px;
     border-radius: 9px;
-    padding: 32px;
+    padding: 20px;
     text-align: center;
-    border: 2px solid rgb(188, 185, 185);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
+    border:solid rgb(188, 185, 185);
     z-index: 1;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    max-height: 800px;
-    overflow-y: scroll;
+    max-height: 90%;
+    height: 80%;
     padding-right: 10px;
 }
 
-form::-webkit-scrollbar {
-    width: 8px;
-}
 
-form::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-}
-
-form::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
-
-form::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
-}
 
 h2 {
     font-size: 2rem;

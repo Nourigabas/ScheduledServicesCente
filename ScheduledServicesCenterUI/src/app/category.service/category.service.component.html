@@ -1,10 +1,10 @@
 <header>
   <nav class="nav justify-content-center">
-    <a class="p-2 link-secondary" href="#">World</a>
-    <a class="p-2 link-secondary" href="#">U.S.</a>
-    <a class="p-2 link-secondary" href="#">Technology</a>
-    <a class="p-2 link-secondary" href="#">Design</a>
-    <a class="p-2 link-secondary" href="#">Culture</a>
+    <a [routerLink]="['/owner']" class="p-2 link-secondary" href="#">World</a>
+    <a [routerLink]="['/service']" class="p-2 link-secondary" href="#">U.S.</a>
+    <a [routerLink]="['/reservation']" class="p-2 link-secondary" href="#">Technology</a>
+    <a [routerLink]="['/user']" class="p-2 link-secondary" href="#">Design</a>
+    <a [routerLink]="['/serviceowner']" class="p-2 link-secondary" href="#">Culture</a>
     <a class="p-2 link-secondary" href="#">Business</a>
     <a class="p-2 link-secondary" href="#">Politics</a>
     <a class="p-2 link-secondary" href="#">Opinion</a>
@@ -13,7 +13,7 @@
     <a class="p-2 link-secondary" href="#">Style</a>
     <a class="p-2 link-secondary" href="#">Travel</a>
   </nav>
-  
+
   <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
     <div class="col-md-6">
       <!--هنا سيتم وضع نوع القسم -->
@@ -23,9 +23,9 @@
     </div>
   </div>
 </header>
+<body>
 
-<main>
-  <div class="album bg-light">
+  <div class="album bg-light container">
     <div style="margin: 10px;">
       <div class="row shadow-sm h-md-250 position-relative">
         <div class="col-auto d-lg-block">
@@ -35,7 +35,7 @@
           <strong class="d-inline-block mb-2 text-primary">sector</strong>
           <h3 class="mb-0">category service</h3>
           <br />
-          <p class="card-text mb-auto">description for category service</p>
+          <p class="card-text mb-auto">description for category service</p> 
         </div>
       </div>
       <br>
@@ -48,7 +48,8 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Site</th>
-                <th>Evaluation</th>
+                <th>Discription</th>
+                <th>Rating</th>
                 <th>Book</th>
                 <th>Details</th>
               </tr>
@@ -58,12 +59,12 @@
                 <td>1</td>
                 <td>Nouri</td>
                 <td>Idleb</td>
-
+                <td>Full Check</td>
                 <td>
                   <div class="stars">★★★★☆</div>
                 </td>
                 <td>
-                  <button class="button reservation">
+                  <button [routerLink]="['/service']" class="button reservation">
                     <i class="fa fa-calendar" aria-hidden="true"></i> Book an
                     appointment
                   </button>
@@ -71,7 +72,7 @@
 
                 <td>
                   <button [routerLink]="['/servdetails']" class="button reservation">
-                    <i class="fas fa-info-circle"></i> View details
+                    <i class="fa fa-info-circle"></i> View details
                   </button>
                 </td>
               </tr>
@@ -79,6 +80,7 @@
                 <td>2</td>
                 <td>Nouri</td>
                 <td>Idleb</td>
+                <td>Full Check</td>
                 <td>
                   <div class="stars">★★★★☆</div>
                 </td>
@@ -90,7 +92,7 @@
                 </td>
                 <td>
                   <button class="button reservation">
-                    <i class="fas fa-info-circle"></i> View details
+                    <i class="fa fa-info-circle"></i> View details
                   </button>
                 </td>
               </tr>
@@ -98,6 +100,7 @@
                 <td>3</td>
                 <td>Nouri</td>
                 <td>Idleb</td>
+                <td>Full Check</td>
                 <td>
                   <div class="stars">★★★★☆</div>
                 </td>
@@ -109,7 +112,7 @@
                 </td>
                 <td>
                   <button class="button reservation">
-                    <i class="fas fa-info-circle"></i> View details
+                    <i class="fa fa-info-circle"></i> View details
                   </button>
                 </td>
               </tr>
@@ -173,7 +176,7 @@
                 </td>
                 <td>
                   <button class="button reservation">
-                    <i class="fas fa-info-circle"></i> View details
+                    <i class="fa fa-info-circle"></i> View details
                   </button>
                 </td>
               </tr>
@@ -192,7 +195,7 @@
                 </td>
                 <td>
                   <button class="button reservation">
-                    <i class="fas fa-info-circle"></i> View details
+                    <i class="fa fa-info-circle"></i> View details
                   </button>
                 </td>
               </tr>
@@ -211,7 +214,7 @@
                 </td>
                 <td>
                   <button class="button reservation">
-                    <i class="fas fa-info-circle"></i> View details
+                    <i class="fa fa-info-circle"></i> View details
                   </button>
                 </td>
               </tr>
@@ -230,7 +233,7 @@
                 </td>
                 <td>
                   <button class="button reservation">
-                    <i class="fas fa-info-circle"></i> View details
+                    <i class="fa fa-info-circle"></i> View details
                   </button>
                 </td>
               </tr>
@@ -249,7 +252,7 @@
                 </td>
                 <td>
                   <button class="button reservation">
-                    <i class="fas fa-info-circle"></i> View details
+                    <i class="fa fa-info-circle"></i> View details
                   </button>
                 </td>
               </tr>
@@ -260,7 +263,7 @@
     </div>
   </div>
 
-</main>
+</body>
 
 <footer class="blog-footer">
   <p>
@@ -268,5 +271,5 @@
   </p>
   <p>
     <a  [routerLink]="['/sector']">Back to sections</a>
-  </p>
+  </p>
 </footer>

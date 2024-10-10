@@ -9,7 +9,7 @@
       <a href="#" class="navbar-brand d-flex align-items-center">
         <strong>Juice Services</strong>
       </a>
-      <button class="navbar-toggler account-btn" type="button" data-toggle="collapse" data-target="#navbarHeader"
+      <button [routerLink]="['/owner']" class="navbar-toggler account-btn" type="button" data-toggle="collapse" data-target="#navbarHeader"
         aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-user"></i>
       </button>
@@ -79,7 +79,7 @@
         </div>
       </a>
     </div>
-    <button class="button reservation">
+    <button [routerLink]="['/createservice']" class="button reservation">
       <i class="fa fa-plus"></i>
       Add new service
     </button>
