@@ -2,7 +2,6 @@
 using Data.Repository.RepositoryModels;
 using Domain.Models;
 using Domain.ModelsForCreateAndUpdate;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,11 +13,13 @@ namespace ScheduledServicesCente.Controllers
     {
         private readonly ISectorRepository Sector;
         private readonly IMapper mapper;
+
         public SectorController(ISectorRepository Sector, IMapper mapper)
         {
             this.Sector = Sector;
             this.mapper = mapper;
         }
+
         //[AllowAnonymous]
         [HttpGet]
         [Route("sectors")]
@@ -29,6 +30,7 @@ namespace ScheduledServicesCente.Controllers
                 return NotFound();
             return Ok(respone);
         }
+
         [HttpGet]
         [Route("sector/{sectorId}")]
         public ActionResult<Sector> GetSector(Guid sectorId)
@@ -38,6 +40,7 @@ namespace ScheduledServicesCente.Controllers
                 return NotFound();
             return Ok(respone);
         }
+
         [HttpPost]
         [Route("sector/create")]
         public ActionResult CreateSector(SectorForCreate_Update sector)
@@ -46,6 +49,7 @@ namespace ScheduledServicesCente.Controllers
             Sector.CreateSector(SectorForCreate);
             return Ok();
         }
+
         [HttpDelete]
         [Route("sector/delete/{sectorId}")]
         public ActionResult DeleteSector(Guid sectorId)
@@ -56,6 +60,7 @@ namespace ScheduledServicesCente.Controllers
             Sector.DeletSector(sectorId);
             return Ok();
         }
+
         [HttpPatch]
         [Route("sector/update/{ServiceId}")]
         public ActionResult<Sector> UpdateSector(Guid SectorId, JsonPatchDocument<SectorForCreate_Update> PatchDocument)
@@ -66,6 +71,5 @@ namespace ScheduledServicesCente.Controllers
             Sector.UpdateSector(SectorId, PatchDocument);
             return NoContent();
         }
-
     }
 }

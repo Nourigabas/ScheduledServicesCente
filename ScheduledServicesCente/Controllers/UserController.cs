@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using Data.Repository.RepositoryModels;
 using Data.Repository.RepositoryModels.M_User;
 using Domain.ModelForCreate;
 using Domain.Models;
-using Domain.ModelsForCreateAndUpdate;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,8 +19,6 @@ namespace ScheduledServicesCente.Controllers
             this.mapper = mapper;
         }
 
-
-
         //[AllowAnonymous]
         [HttpGet]
         [Route("users")]
@@ -34,9 +30,6 @@ namespace ScheduledServicesCente.Controllers
             return Ok(respone);
         }
 
-
-
-
         [HttpGet]
         [Route("user/{UserId}")]
         public ActionResult<User> GetSector(Guid UserId)
@@ -47,9 +40,6 @@ namespace ScheduledServicesCente.Controllers
             return Ok(respone);
         }
 
-
-
-
         [HttpPost]
         [Route("user/create")]
         public ActionResult CreateUser(UserForCreate_Update user)
@@ -58,9 +48,6 @@ namespace ScheduledServicesCente.Controllers
             User.CreateUser(UserForCreate);
             return Ok();
         }
-
-
-
 
         [HttpDelete]
         [Route("user/delete/{UserId}")]

@@ -2,11 +2,6 @@
 using Domain.ModelForCreate;
 using Domain.Models;
 using Microsoft.AspNetCore.JsonPatch;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Repository.RepositoryModels.M_User
 {
@@ -52,7 +47,6 @@ namespace Data.Repository.RepositoryModels.M_User
             });
             return response;
         }
- 
 
         public void UpdateUser(Guid UserId, JsonPatchDocument<UserForCreate_Update> PatchDocument)
         {

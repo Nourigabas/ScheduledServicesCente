@@ -1,11 +1,5 @@
-﻿using Domain;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Repository
 {
@@ -17,10 +11,9 @@ namespace Data.Repository
         {
             this.DBContext = DBContext;
         }
-        
+
         public T Add(T entity)
         {
-
             var newentity = DBContext.Add(entity);
             return newentity.Entity;
         }
@@ -53,7 +46,6 @@ namespace Data.Repository
             return query.SingleOrDefault(match);
         }
 
-
         public T Update(T entity)
         {
             return DBContext.Update(entity).Entity;
@@ -63,6 +55,5 @@ namespace Data.Repository
         {
             DBContext.SaveChanges();
         }
-
     }
 }

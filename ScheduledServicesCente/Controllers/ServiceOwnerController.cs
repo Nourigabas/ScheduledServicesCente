@@ -14,7 +14,7 @@ namespace ScheduledServicesCente.Controllers
         private readonly IServiceOwnerRepository ServiceOwner;
         private readonly IMapper mapper;
 
-        public ServiceOwnerController(IServiceOwnerRepository ServiceOwner,IMapper mapper)
+        public ServiceOwnerController(IServiceOwnerRepository ServiceOwner, IMapper mapper)
         {
             this.ServiceOwner = ServiceOwner;
             this.mapper = mapper;
@@ -40,7 +40,6 @@ namespace ScheduledServicesCente.Controllers
             return Ok(respone);
         }
 
-
         [HttpPost]
         [Route("serviceowner/create")]
         public ActionResult CreateServiceOwner(ServiceOwnerForCreate_Update serviceowner)
@@ -49,7 +48,6 @@ namespace ScheduledServicesCente.Controllers
             ServiceOwner.CreateServiceOwner(ServiceOwnerForCreate);
             return Ok();
         }
-
 
         [HttpDelete]
         [Route("serviceowner/delete/{ServiceOwnerId}")]
@@ -62,7 +60,6 @@ namespace ScheduledServicesCente.Controllers
             return Ok();
         }
 
-
         [HttpPatch]
         [Route("serviceowner/update/{ServiceOwnerId}")]
         public ActionResult<ServiceOwner> UpdateServiceOwner(Guid ServiceOwnerId, JsonPatchDocument<ServiceOwnerForCreate_Update> PatchDocument)
@@ -74,7 +71,7 @@ namespace ScheduledServicesCente.Controllers
             return NoContent();
         }
 
-
+        [HttpPatch]
         [Route("serviceowner/accept/{ServiceOwnerId}")]
         public ActionResult ServiceAccept(Guid ServiceOwnerId)
         {

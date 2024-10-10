@@ -2,11 +2,6 @@
 using Domain.ModelForCreate;
 using Domain.Models;
 using Microsoft.AspNetCore.JsonPatch;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Repository.RepositoryModels.M_Reservation
 {
@@ -20,6 +15,7 @@ namespace Data.Repository.RepositoryModels.M_Reservation
             this.mapper = mapper;
             this.DatabaseContext = DatabaseContext;
         }
+
         public void CreateReservation(Reservation Reservation)
         {
             Add(Reservation);
@@ -35,7 +31,7 @@ namespace Data.Repository.RepositoryModels.M_Reservation
 
         public Reservation GetReservation(Guid ReservationId)
         {
-            var response = Get(e => e.Id == ReservationId &&!e.IsDeleted, new[]
+            var response = Get(e => e.Id == ReservationId && !e.IsDeleted, new[]
             {
               "Service",
               "Appointment",
@@ -57,7 +53,6 @@ namespace Data.Repository.RepositoryModels.M_Reservation
             return respone;
         }
 
-     
         public void UpdateReservation(Guid ReservationId, JsonPatchDocument<ReservationForCreate_Update> PatchDocument)
         {
             var Reservation = GetReservation(ReservationId);

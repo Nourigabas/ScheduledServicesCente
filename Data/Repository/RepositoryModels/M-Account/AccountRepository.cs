@@ -1,5 +1,4 @@
-﻿using Azure;
-using Domain.Authentication;
+﻿using Domain.Authentication;
 
 namespace Data.Repository.RepositoryModels.M_Account
 {
@@ -11,7 +10,8 @@ namespace Data.Repository.RepositoryModels.M_Account
         {
             this.DatabaseContext = DatabaseContext;
         }
-        public (bool, string , string) Login(AuthRequest Request, bool IsOwner)
+
+        public (bool, string, string) Login(AuthRequest Request, bool IsOwner)
         {
             if (IsOwner)
             {
@@ -28,8 +28,8 @@ namespace Data.Repository.RepositoryModels.M_Account
                                                             &&
                                                             req.Password == Request.Password).FirstOrDefault();
             if (UserAccont is not null)
-                return (false, "IsUser",UserAccont.FullName);
-            return (false, "IsNotUserOrOwner","");
+                return (false, "IsUser", UserAccont.FullName);
+            return (false, "IsNotUserOrOwner", "");
         }
     }
 }

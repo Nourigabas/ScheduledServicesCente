@@ -15,20 +15,20 @@ namespace ScheduledServicesCente.Controllers
         private readonly IConfiguration configuration;
         private readonly IAccountRepository Account;
 
-        public AccountController(IConfiguration configuration,IAccountRepository Account)
+        public AccountController(IConfiguration configuration, IAccountRepository Account)
         {
             this.configuration = configuration;
             this.Account = Account;
         }
+
         //فحص معلومات المستخدم وجلب
         //token
         [HttpPost("Authentication")]
-        public ActionResult<string> LoginAccount(AuthRequest Request,bool IsOwner)
+        public ActionResult<string> LoginAccount(AuthRequest Request, bool IsOwner)
         {
-            (var res, var stringfortype,var fullname) = Account.Login(Request, IsOwner);
-            if(res is false && stringfortype== "IsNotUserOrOwner")
+            (var res, var stringfortype, var fullname) = Account.Login(Request, IsOwner);
+            if (res is false && stringfortype == "IsNotUserOrOwner")
                 return Unauthorized();
-
 
             var Claims = new List<Claim>();
             Claims.Add(new Claim(ClaimTypes.GivenName, fullname));
@@ -50,7 +50,6 @@ namespace ScheduledServicesCente.Controllers
                 Token,
                 AccountType = res ? "Owner" : "User"
             });
-
         }
     }
 }

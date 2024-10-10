@@ -2,7 +2,6 @@
 using Data.Repository.RepositoryModels.M_Service;
 using Domain.ModelForCreate;
 using Domain.Models;
-using Domain.ModelsForCreateAndUpdate;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,12 +14,11 @@ namespace ScheduledServicesCente.Controllers
         private readonly IMapper mapper;
         private readonly IServiceRepository Service;
 
-        public ServiceController(IServiceRepository Service,IMapper mapper)
+        public ServiceController(IServiceRepository Service, IMapper mapper)
         {
             this.mapper = mapper;
             this.Service = Service;
         }
-
 
         [HttpGet]
         [Route("services")]
@@ -32,9 +30,6 @@ namespace ScheduledServicesCente.Controllers
             return Ok(respone);
         }
 
-
-
-
         [HttpGet]
         [Route("service/{ServiceId}")]
         public ActionResult<Service> GetService(Guid ServiceId)
@@ -45,9 +40,6 @@ namespace ScheduledServicesCente.Controllers
             return Ok(respone);
         }
 
-
-
-
         [HttpPost]
         [Route("service/create")]
         public ActionResult CreateService(ServiceForCreate_Update service)
@@ -56,6 +48,7 @@ namespace ScheduledServicesCente.Controllers
             Service.CreateService(SectorForCreate);
             return Ok();
         }
+
         [HttpDelete]
         [Route("service/delete/{ServiceId}")]
         public ActionResult DeleteService(Guid ServiceId)
@@ -66,6 +59,7 @@ namespace ScheduledServicesCente.Controllers
             Service.DeleteService(ServiceId);
             return Ok();
         }
+
         [HttpPatch]
         [Route("service/update/{ServiceId}")]
         public ActionResult<Service> UpdateService(Guid ServiceId, JsonPatchDocument<ServiceForCreate_Update> PatchDocument)
@@ -75,16 +69,6 @@ namespace ScheduledServicesCente.Controllers
                 return NotFound();
             Service.UpdateService(ServiceId, PatchDocument);
             return NoContent();
-        }
-        [HttpPatch]
-        [Route("service/accept/{ServiceId}")]
-        public ActionResult ServiceAccept(Guid ServiceId)
-        {
-            var Check = Service.GetService(ServiceId);
-            if (Check == null)
-                return NotFound();
-            Service.ServiceAccept(ServiceId);
-            return Ok();
         }
     }
 }

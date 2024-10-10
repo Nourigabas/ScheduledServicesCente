@@ -14,14 +14,11 @@ namespace ScheduledServicesCente.Controllers
         private readonly IMapper mapper;
         private readonly IAppointmentRepository Appointment;
 
-        public AppointmentController(IAppointmentRepository Appointment,IMapper mapper)
+        public AppointmentController(IAppointmentRepository Appointment, IMapper mapper)
         {
             this.mapper = mapper;
             this.Appointment = Appointment;
         }
-
-
-
 
         [HttpGet]
         [Route("appointment")]
@@ -32,6 +29,7 @@ namespace ScheduledServicesCente.Controllers
                 return NotFound();
             return Ok(respone);
         }
+
         [HttpGet]
         [Route("appointment/{AppointmentId}")]
         public ActionResult<CategoryService> GetAppointment(Guid AppointmentId)
@@ -41,6 +39,7 @@ namespace ScheduledServicesCente.Controllers
                 return NotFound();
             return Ok(respone);
         }
+
         [HttpPost]
         [Route("appointment/create")]
         public ActionResult CreateAppointment(AppointmentForCreate_Update appointment)
@@ -49,6 +48,7 @@ namespace ScheduledServicesCente.Controllers
             Appointment.CreateAppointment(AppointmentForCreate);
             return Ok();
         }
+
         [HttpDelete]
         [Route("appointment/delete/{AppointmentId}")]
         public ActionResult DeleteAppointment(Guid AppointmentId)
@@ -59,6 +59,7 @@ namespace ScheduledServicesCente.Controllers
             Appointment.DeleteAppointment(AppointmentId);
             return Ok();
         }
+
         [HttpPatch]
         [Route("appointment/update/{AppointmentId}")]
         public ActionResult<Appointment> UpdateAppointment(Guid AppointmentId,
@@ -70,6 +71,7 @@ namespace ScheduledServicesCente.Controllers
             Appointment.UpdateAppointment(AppointmentId, PatchDocument);
             return NoContent();
         }
+
         [HttpPatch]
         [Route("appointment/booked/{AppointmentId}")]
         public ActionResult AppointmentBooked(Guid AppointmentId)
@@ -80,6 +82,5 @@ namespace ScheduledServicesCente.Controllers
             Appointment.AppointmentBooked(AppointmentId);
             return Ok();
         }
-
     }
 }

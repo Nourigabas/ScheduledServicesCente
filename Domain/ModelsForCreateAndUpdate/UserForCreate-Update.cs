@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.ModelForCreate
+﻿namespace Domain.ModelForCreate
 {
     public class UserForCreate_Update
     {
@@ -16,5 +10,8 @@ namespace Domain.ModelForCreate
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsDeleted { get; set; } = false;
+        public Guid? EvaluationId { get; set; }
+        public Guid? OwnerServiceId { get; set; }
+
     }
 }

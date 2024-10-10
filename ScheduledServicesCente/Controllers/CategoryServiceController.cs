@@ -20,9 +20,6 @@ namespace ScheduledServicesCente.Controllers
             this.CategoryService = CategoryService;
         }
 
-
-
-
         [HttpGet]
         [Route("categoryservice")]
         public ActionResult<List<CategoryService>> GetCategoryServices()
@@ -32,6 +29,7 @@ namespace ScheduledServicesCente.Controllers
                 return NotFound();
             return Ok(respone);
         }
+
         [HttpGet]
         [Route("categoryservice/{CategoryServiceId}")]
         public ActionResult<CategoryService> GetCategoryService(Guid CategoryServiceId)
@@ -41,6 +39,7 @@ namespace ScheduledServicesCente.Controllers
                 return NotFound();
             return Ok(respone);
         }
+
         [HttpPost]
         [Route("categoryservice/create")]
         public ActionResult CreateCategoryService(CategoryServiceForCreate_Update categoryservice)
@@ -49,6 +48,7 @@ namespace ScheduledServicesCente.Controllers
             CategoryService.CreateCategoryService(CategoryServiceForCreate);
             return Ok();
         }
+
         [HttpDelete]
         [Route("categoryservice/delete/{CategoryServiceId}")]
         public ActionResult DeleteCategoryService(Guid CategoryServiceId)
@@ -59,6 +59,7 @@ namespace ScheduledServicesCente.Controllers
             CategoryService.DeleteCategoryService(CategoryServiceId);
             return Ok();
         }
+
         [HttpPatch]
         [Route("categoryservice/update/{CategoryServiceId}")]
         public ActionResult<CategoryService> UpdateCategoryService(Guid CategoryServiceId,

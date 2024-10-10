@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Models
+﻿namespace Domain.Models
 {
     public class User
     {
@@ -12,6 +6,7 @@ namespace Domain.Models
         {
             Id = Guid.NewGuid();
         }
+
         public Guid Id { get; set; }
         public string FullName { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -20,6 +15,11 @@ namespace Domain.Models
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsDeleted { get; set; } = false;
-        public ICollection<Reservation> Reservations { get; set; }
+        public bool IsOwner { get; set; } = false;
+        public Guid? EvaluationId { get; set; }
+        public Evaluation? Evaluation { get; set; }
+        public Guid? OwnerServiceId { get; set; }
+        public ServiceOwner? ServiceOwner { get; set; }
+        public ICollection<Reservation>? Reservations { get; set; }
     }
 }

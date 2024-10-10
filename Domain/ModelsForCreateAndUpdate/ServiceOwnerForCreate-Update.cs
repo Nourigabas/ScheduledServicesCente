@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.ModelForCreate
+﻿namespace Domain.ModelForCreate
 {
     public class ServiceOwnerForCreate_Update
     {
@@ -18,6 +12,7 @@ namespace Domain.ModelForCreate
         public string UrlCV { get; set; }
         public bool IsAccepted { get; set; } = false;
         public bool IsDeleted { get; set; } = false;
+        public bool IsOwner { get; set; } = false;
         public Guid SectorId { get; set; }
     }
 }

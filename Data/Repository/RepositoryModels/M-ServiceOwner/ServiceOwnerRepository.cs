@@ -2,11 +2,6 @@
 using Domain.ModelForCreate;
 using Domain.Models;
 using Microsoft.AspNetCore.JsonPatch;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Repository.RepositoryModels.M_ServiceOwner
 {
@@ -23,7 +18,7 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
 
         public void ServiceOwnerAccept(Guid ServiceOwnerId)
         {
-            var respone = DatabaseContext.Services.FirstOrDefault(e => e.Id == ServiceOwnerId);
+            var respone = DatabaseContext.OwnerServices.FirstOrDefault(e => e.Id == ServiceOwnerId);
             respone.IsAccepted = true;
             SaveChange();
         }
@@ -58,11 +53,10 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
                 "Services",
                 "Sector"
             })
-                         .Where(e => e.IsDeleted == false&& e.IsAccepted)
+                         .Where(e => e.IsDeleted == false && e.IsAccepted)
                          .ToList();
             return respone;
         }
-
 
         public void UpdateServiceOwner(Guid ServiceOwnerId, JsonPatchDocument<ServiceOwnerForCreate_Update> PatchDocument)
         {

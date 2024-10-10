@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Models
+﻿namespace Domain.Models
 {
     //حجوزات
     public class Reservation
@@ -13,6 +7,7 @@ namespace Domain.Models
         {
             Id = Guid.NewGuid();
         }
+
         public Guid Id { get; set; }
         public bool IsDeleted { get; set; } = false;
         public Guid UserId { get; set; }
@@ -21,6 +16,5 @@ namespace Domain.Models
         public Service Service { get; set; }
         public Guid AppointmentId { get; set; }
         public Appointment Appointment { get; set; }
-
     }
 }

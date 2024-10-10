@@ -18,9 +18,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-
-
 //token
 builder.Services.AddAuthentication()
     .AddJwtBearer(options =>
@@ -36,26 +33,22 @@ builder.Services.AddAuthentication()
         };
     });
 
-
-//الاتصال مع قاعدة البيانات 
+//الاتصال مع قاعدة البيانات
 builder.Services.AddDbContext<DatabaseContext>(option =>
           option.UseSqlServer(builder.Configuration["ConnectionStrings:ScheduledServicesCenteDBConnection"]));
-
 
 //تسجيل
 //mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-builder.Services.AddScoped<IServiceRepository, ServiceRepository>(); 
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<ICategoryServiceRepository, CategoryServiceRepository>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<ISectorRepository, SectorRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-
-
 
 var app = builder.Build();
 
@@ -68,7 +61,6 @@ if (app.Environment.IsDevelopment())
 
 //Make authentication as middleware
 app.UseAuthentication();
-
 
 app.UseHttpsRedirection();
 

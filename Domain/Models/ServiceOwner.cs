@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Models
 {
@@ -12,6 +8,7 @@ namespace Domain.Models
         {
             Id = Guid.NewGuid();
         }
+
         public Guid Id { get; set; }
         public string FullName { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -25,9 +22,12 @@ namespace Domain.Models
         public bool IsDeleted { get; set; } = false;
         public string UserName { get; set; }
         public string Password { get; set; }
+        [Range(0, 5, ErrorMessage = "The evaluation must be between 0 and 5.")]
+        public double EvaluationAverage { get; set; }
         public ICollection<Service> Services { get; set; }
         public Guid SectorId { get; set; }
         public Sector Sector { get; set; }
-
+        public Guid UserId { get; set; }
+        public User User { get; set; }
     }
 }

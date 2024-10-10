@@ -2,11 +2,6 @@
 using Domain.ModelForCreate;
 using Domain.Models;
 using Microsoft.AspNetCore.JsonPatch;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Repository.RepositoryModels
 {
@@ -14,10 +9,18 @@ namespace Data.Repository.RepositoryModels
     {
         private readonly IMapper mapper;
         private readonly DatabaseContext DatabaseContext;
+
         public CategoryServiceRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
         {
             this.mapper = mapper;
             this.DatabaseContext = DatabaseContext;
+        }
+
+        public void CategoryServiceAccept(Guid CategoryServiceId)
+        {
+            var respone = DatabaseContext.CategoryServices.FirstOrDefault(e => e.Id == CategoryServiceId);
+            respone.IsAccepted = true;
+            SaveChange();
         }
 
         public void CreateCategoryService(CategoryService CategoryService)
@@ -45,16 +48,15 @@ namespace Data.Repository.RepositoryModels
 
         public List<CategoryService> GetCategoryServices()
         {
-            var respone = All(new[] 
+            var respone = All(new[]
             {
                 "Services",
-                "Sector" 
+                "Sector"
             })
                         .Where(e => e.IsDeleted == false)
                         .ToList();
             return respone;
         }
-
 
         public void UpdateCategoryService(Guid CategoryServiceId, JsonPatchDocument<CategoryServiceForCreate_Update> PatchDocument)
         {

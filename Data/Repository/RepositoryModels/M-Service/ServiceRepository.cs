@@ -16,13 +16,6 @@ namespace Data.Repository.RepositoryModels.M_Service
             this.DatabaseContext = DatabaseContext;
         }
 
-        public void ServiceAccept(Guid ServiceId)
-        {
-            var respone = DatabaseContext.Services.FirstOrDefault(e => e.Id == ServiceId);
-            respone.IsAccepted = true;
-            SaveChange();
-        }
-
         public void CreateService(Service Service)
         {
             Add(Service);
@@ -38,7 +31,7 @@ namespace Data.Repository.RepositoryModels.M_Service
 
         public Service GetService(Guid ServiceId)
         {
-            var response = Get(e => e.Id == ServiceId && e.IsAccepted && !e.IsDeleted, new[]
+            var response = Get(e => e.Id == ServiceId && !e.IsDeleted, new[]
             {
                 "ServiceOwner",
                 "CategoryService",
@@ -59,12 +52,11 @@ namespace Data.Repository.RepositoryModels.M_Service
                 "Reservation",
                 "Sector"
             })
-                        .Where(e => e.IsDeleted == false && e.IsAccepted)
+                        .Where(e => e.IsDeleted == false)
                         .ToList();
             return respone;
         }
 
-     
         public void UpdateService(Guid ServiceId, JsonPatchDocument<ServiceForCreate_Update> PatchDocument)
         {
             var Service = GetService(ServiceId);

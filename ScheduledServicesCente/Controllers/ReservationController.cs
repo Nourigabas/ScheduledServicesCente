@@ -2,7 +2,6 @@
 using Data.Repository.RepositoryModels.M_Reservation;
 using Domain.ModelForCreate;
 using Domain.Models;
-using Domain.ModelsForCreateAndUpdate;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,8 +20,6 @@ namespace ScheduledServicesCente.Controllers
             this.mapper = mapper;
         }
 
-
-
         [HttpGet]
         [Route("reservations")]
         public ActionResult<List<Reservation>> GetReservations()
@@ -32,6 +29,7 @@ namespace ScheduledServicesCente.Controllers
                 return NotFound();
             return Ok(respone);
         }
+
         [HttpGet]
         [Route("reservation/{ReservationId}")]
         public ActionResult<Reservation> GetReservation(Guid ReservationId)
@@ -41,6 +39,7 @@ namespace ScheduledServicesCente.Controllers
                 return NotFound();
             return Ok(respone);
         }
+
         [HttpPost]
         [Route("reservation/create")]
         public ActionResult CreateReservation(ReservationForCreate_Update reservation)
@@ -49,6 +48,7 @@ namespace ScheduledServicesCente.Controllers
             Reservation.CreateReservation(ReservationForCreate);
             return Ok();
         }
+
         [HttpDelete]
         [Route("reservation/delete/{ReservationId}")]
         public ActionResult DeleteReservation(Guid ReservationId)
@@ -59,6 +59,7 @@ namespace ScheduledServicesCente.Controllers
             Reservation.DeleteReservation(ReservationId);
             return Ok();
         }
+
         [HttpPatch]
         [Route("reservation/update/{ReservationId}")]
         public ActionResult<Reservation> UpdateReservation(Guid ReservationId,

@@ -1,10 +1,5 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data
 {
@@ -49,22 +44,15 @@ namespace Data
                         .HasForeignKey(r => r.ServiceId)
                         .OnDelete(DeleteBehavior.Restrict);
 
-
             modelBuilder.Entity<Sector>().HasData(
            new Sector
            {
                Id = Guid.Parse("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"),
                Description = "Politics news in Syria",
-               TypeSector= "medicine",
-               IsAccepted=true,
-               IsDeleted = false
+               TypeSector = "medicine",
+               UrlSectorIcon = "www",
+               IsAccepted = true,
            });
-
-
-
-
-
-
         }
         public static void CreateInitialTestingDataBase(DatabaseContext DatabaseContext)
         {
@@ -76,18 +64,20 @@ namespace Data
                         {
                             Id = Guid.Parse("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"),
                             Description = "Politics news in Syria",
+                            UrlSectorIcon="www",
+
                             IsDeleted=false
                         },
                         new Sector
                         {
                             Id = Guid.Parse("0f11bbca-c9b2-4bfb-8acb-20192869ce38"),
                             Description = "Sports news in Syria",
+                            UrlSectorIcon="www",
+
                             IsDeleted=false
                         }
                     });
             DatabaseContext.SaveChanges();
         }
-
     }
-
 }
