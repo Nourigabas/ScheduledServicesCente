@@ -1,7 +1,7 @@
 import { Guid } from "guid-typescript"
-import { Reservation } from "../reservation/reservation";
+import { IReservation } from "./reservation";
 
-export interface User {
+export interface IUser {
     Id: Guid;
     FullName: string;
     DateOfBirth: Date;
@@ -10,5 +10,5 @@ export interface User {
     UserName: string;
     Password: string;
     IsDeleted: boolean;
-    Reservations: Reservation[];
+    Reservations: IReservation[];
 }
