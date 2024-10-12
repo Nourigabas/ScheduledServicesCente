@@ -32,7 +32,10 @@ namespace Data.Repository.RepositoryModels.M_User
         {
             var respone = All(new[]
             {
+                    "Evaluation",
+                    "ServiceOwner",
                     "Reservations"
+
             })
                         .Where(e => e.IsDeleted == false)
                         .ToList();

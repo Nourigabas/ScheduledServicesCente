@@ -5,6 +5,8 @@
         public CategoryService()
         {
             Id = Guid.NewGuid();
+            Services = new List<Service>();
+
         }
 
         public Guid Id { get; set; }

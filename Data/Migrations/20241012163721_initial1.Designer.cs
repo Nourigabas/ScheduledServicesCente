@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240929114217_remove-field-site-in-model-user")]
-    partial class removefieldsiteinmodeluser
+    [Migration("20241012163721_initial1")]
+    partial class initial1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,6 +59,9 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -69,11 +72,42 @@ namespace Data.Migrations
                     b.Property<Guid>("SectorId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("UrlCategoryserviceIcon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("SectorId");
 
                     b.ToTable("CategoryServices");
+                });
+
+            modelBuilder.Entity("Domain.Models.Evaluation", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("EvaluationValue")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ServiceOwnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceId");
+
+                    b.HasIndex("ServiceOwnerId");
+
+                    b.ToTable("Evaluation");
                 });
 
             modelBuilder.Entity("Domain.Models.PlatformManagers", b =>
@@ -135,8 +169,19 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("SectorIcon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeSector")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -147,7 +192,10 @@ namespace Data.Migrations
                         {
                             Id = new Guid("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"),
                             Description = "Politics news in Syria",
-                            IsDeleted = false
+                            IsAccepted = false,
+                            IsDeleted = false,
+                            SectorIcon = "[]",
+                            TypeSector = "medicine"
                         });
                 });
 
@@ -163,9 +211,6 @@ namespace Data.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsAccepted")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -197,14 +242,29 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("CV")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("EvaluationAverage")
+                        .HasColumnType("float");
 
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgPersonalIdentity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgWorkIdentity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -229,17 +289,8 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UrlCV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlImgPersonalIdentity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlImgWorkIdentity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -248,6 +299,10 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("SectorId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("OwnerServices");
                 });
@@ -261,6 +316,9 @@ namespace Data.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("EvaluationId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -271,6 +329,12 @@ namespace Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<bool>("IsOwner")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("OwnerServiceId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -285,6 +349,8 @@ namespace Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EvaluationId");
 
                     b.ToTable("Users");
                 });
@@ -309,6 +375,25 @@ namespace Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Sector");
+                });
+
+            modelBuilder.Entity("Domain.Models.Evaluation", b =>
+                {
+                    b.HasOne("Domain.Models.Service", "Service")
+                        .WithMany("Evaluations")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.ServiceOwner", "ServiceOwner")
+                        .WithMany("Evaluations")
+                        .HasForeignKey("ServiceOwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Service");
+
+                    b.Navigation("ServiceOwner");
                 });
 
             modelBuilder.Entity("Domain.Models.Reservation", b =>
@@ -373,7 +458,22 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Models.User", "User")
+                        .WithOne("ServiceOwner")
+                        .HasForeignKey("Domain.Models.ServiceOwner", "UserId");
+
                     b.Navigation("Sector");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Domain.Models.User", b =>
+                {
+                    b.HasOne("Domain.Models.Evaluation", "Evaluation")
+                        .WithMany("Users")
+                        .HasForeignKey("EvaluationId");
+
+                    b.Navigation("Evaluation");
                 });
 
             modelBuilder.Entity("Domain.Models.Appointment", b =>
@@ -384,6 +484,11 @@ namespace Data.Migrations
             modelBuilder.Entity("Domain.Models.CategoryService", b =>
                 {
                     b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("Domain.Models.Evaluation", b =>
+                {
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Domain.Models.Sector", b =>
@@ -399,17 +504,23 @@ namespace Data.Migrations
                 {
                     b.Navigation("Appointments");
 
+                    b.Navigation("Evaluations");
+
                     b.Navigation("Reservations");
                 });
 
             modelBuilder.Entity("Domain.Models.ServiceOwner", b =>
                 {
+                    b.Navigation("Evaluations");
+
                     b.Navigation("Services");
                 });
 
             modelBuilder.Entity("Domain.Models.User", b =>
                 {
                     b.Navigation("Reservations");
+
+                    b.Navigation("ServiceOwner");
                 });
 #pragma warning restore 612, 618
         }

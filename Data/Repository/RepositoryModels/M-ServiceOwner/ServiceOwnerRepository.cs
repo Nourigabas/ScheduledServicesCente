@@ -41,7 +41,9 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
             var response = Get(e => e.Id == ServiceOwnerId && e.IsAccepted && !e.IsDeleted, new[]
             {
                 "Services",
-                "Sector"
+                "Evaluations",
+                "Sector",
+                "User"
             });
             return response;
         }
@@ -51,7 +53,9 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
             var respone = All(new[]
             {
                 "Services",
-                "Sector"
+                "Evaluations",
+                "Sector",
+                "User"
             })
                          .Where(e => e.IsDeleted == false && e.IsAccepted)
                          .ToList();

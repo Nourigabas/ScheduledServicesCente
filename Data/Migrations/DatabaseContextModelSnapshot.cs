@@ -92,12 +92,17 @@ namespace Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("ServiceId")
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ServiceOwnerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ServiceId");
+
+                    b.HasIndex("ServiceOwnerId");
 
                     b.ToTable("Evaluation");
                 });
@@ -167,11 +172,11 @@ namespace Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("TypeSector")
+                    b.Property<string>("SectorIcon")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UrlSectorIcon")
+                    b.Property<string>("TypeSector")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -184,10 +189,10 @@ namespace Data.Migrations
                         {
                             Id = new Guid("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"),
                             Description = "Politics news in Syria",
-                            IsAccepted = true,
+                            IsAccepted = false,
                             IsDeleted = false,
-                            TypeSector = "medicine",
-                            UrlSectorIcon = "www"
+                            SectorIcon = "[]",
+                            TypeSector = "medicine"
                         });
                 });
 
@@ -234,6 +239,10 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("CV")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -245,6 +254,14 @@ namespace Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgPersonalIdentity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgWorkIdentity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -269,19 +286,7 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UrlCV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlImgPersonalIdentity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlImgWorkIdentity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("UserName")
@@ -293,7 +298,8 @@ namespace Data.Migrations
                     b.HasIndex("SectorId");
 
                     b.HasIndex("UserId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("OwnerServices");
                 });
@@ -372,9 +378,19 @@ namespace Data.Migrations
                 {
                     b.HasOne("Domain.Models.Service", "Service")
                         .WithMany("Evaluations")
-                        .HasForeignKey("ServiceId");
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.ServiceOwner", "ServiceOwner")
+                        .WithMany("Evaluations")
+                        .HasForeignKey("ServiceOwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Service");
+
+                    b.Navigation("ServiceOwner");
                 });
 
             modelBuilder.Entity("Domain.Models.Reservation", b =>
@@ -441,9 +457,7 @@ namespace Data.Migrations
 
                     b.HasOne("Domain.Models.User", "User")
                         .WithOne("ServiceOwner")
-                        .HasForeignKey("Domain.Models.ServiceOwner", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Domain.Models.ServiceOwner", "UserId");
 
                     b.Navigation("Sector");
 
@@ -494,6 +508,8 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.Models.ServiceOwner", b =>
                 {
+                    b.Navigation("Evaluations");
+
                     b.Navigation("Services");
                 });
 

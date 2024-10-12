@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Models
 {
@@ -12,14 +7,19 @@ namespace Domain.Models
         public Evaluation()
         {
             Id = Guid.NewGuid();
+            Users = new List<User>();
         }
+
         public Guid Id { get; set; }
+
         [Range(0, 5, ErrorMessage = "The evaluation must be between 0 and 5.")]
         public double EvaluationValue { get; set; }
-        public bool IsDeleted { get; set; } = false;
-        public Guid? ServiceId { get; set; }
-        public Service Service { get; set; }
-        public ICollection<User> Users { get; set; }
 
+        public bool IsDeleted { get; set; } = false;
+        public Guid ServiceId { get; set; }
+        public Service Service { get; set; }
+        public Guid ServiceOwnerId { get; set; }
+        public ServiceOwner ServiceOwner { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }

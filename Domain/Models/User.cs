@@ -5,6 +5,7 @@
         public User()
         {
             Id = Guid.NewGuid();
+            Reservations = new List<Reservation>();
         }
 
         public Guid Id { get; set; }

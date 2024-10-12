@@ -2,11 +2,13 @@
 using Data.Repository.RepositoryModels;
 using Domain.Models;
 using Domain.ModelsForCreateAndUpdate;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ScheduledServicesCente.Controllers
 {
+        [AllowAnonymous]
     [ApiController]
     [Route("api/[Controller]")]
     public class SectorController : Controller
@@ -20,7 +22,6 @@ namespace ScheduledServicesCente.Controllers
             this.mapper = mapper;
         }
 
-        //[AllowAnonymous]
         [HttpGet]
         [Route("sectors")]
         public ActionResult<List<Sector>> GetSectors()

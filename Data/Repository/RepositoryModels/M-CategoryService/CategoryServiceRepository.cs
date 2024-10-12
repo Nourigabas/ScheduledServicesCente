@@ -40,8 +40,8 @@ namespace Data.Repository.RepositoryModels
         {
             var response = Get(e => e.Id == CategoryServiceId && !e.IsDeleted, new[]
             {
-                "Services",
-                "Sector"
+                "Sector",
+                "Services"
             });
             return response;
         }
@@ -50,8 +50,8 @@ namespace Data.Repository.RepositoryModels
         {
             var respone = All(new[]
             {
-                "Services",
-                "Sector"
+                "Sector",
+                "Services"
             })
                         .Where(e => e.IsDeleted == false)
                         .ToList();

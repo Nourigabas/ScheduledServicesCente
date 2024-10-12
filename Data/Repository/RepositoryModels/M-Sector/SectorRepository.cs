@@ -27,8 +27,8 @@ namespace Data.Repository.RepositoryModels
             var response = Get(e => e.Id == SectorId , new[]
             {
                 "ServiceOwners" ,
-                "CategoryServices",
-                "Services"
+                "Services",
+                "CategoryServices"
             });
             return response;
         }
@@ -44,9 +44,9 @@ namespace Data.Repository.RepositoryModels
         {
             var respone = All(new[]
             {
-                "CategoryService",
-                "Service",
-                "ServiceOwner"
+                "ServiceOwners" ,
+                "Services",
+                "CategoryServices"
             })
                         .Where(e => e.IsDeleted == false)
                         .ToList();

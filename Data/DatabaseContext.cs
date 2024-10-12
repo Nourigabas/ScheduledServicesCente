@@ -5,7 +5,10 @@ namespace Data
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext(DbContextOptions<DatabaseContext> dbContextOptions) : base(dbContextOptions) { }
+        public DatabaseContext(DbContextOptions<DatabaseContext> dbContextOptions) : base(dbContextOptions)
+        {
+        }
+
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Service> Services { get; set; }
@@ -22,6 +25,7 @@ namespace Data
                 optionsBuilder.UseSqlServer("ScheduledServicesCenteDBConnection");
             }
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointment>()
@@ -33,6 +37,13 @@ namespace Data
                         .WithMany(o => o.Services)
                         .HasForeignKey(s => s.ServiceOwnerId)
                         .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Evaluation>()
+                        .HasOne(e => e.Service)
+                        .WithMany(s => s.Evaluations)
+                        .HasForeignKey(e => e.ServiceId)
+                        .OnDelete(DeleteBehavior.NoAction);
+
             modelBuilder.Entity<Service>()
                         .HasOne(s => s.Sector)
                         .WithMany(sector => sector.Services)
@@ -50,10 +61,10 @@ namespace Data
                Id = Guid.Parse("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"),
                Description = "Politics news in Syria",
                TypeSector = "medicine",
-               UrlSectorIcon = "www",
-               IsAccepted = true,
+               SectorIcon = new List<byte>(),
            });
         }
+
         public static void CreateInitialTestingDataBase(DatabaseContext DatabaseContext)
         {
             DatabaseContext.Database.EnsureDeleted();
@@ -64,17 +75,15 @@ namespace Data
                         {
                             Id = Guid.Parse("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"),
                             Description = "Politics news in Syria",
-                            UrlSectorIcon="www",
-
-                            IsDeleted=false
+                            TypeSector = "medicine",
+                            SectorIcon=new List<byte>(),
                         },
                         new Sector
                         {
                             Id = Guid.Parse("0f11bbca-c9b2-4bfb-8acb-20192869ce38"),
                             Description = "Sports news in Syria",
-                            UrlSectorIcon="www",
-
-                            IsDeleted=false
+                            TypeSector = "medicine",
+                            SectorIcon=new List<byte>(),
                         }
                     });
             DatabaseContext.SaveChanges();

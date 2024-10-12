@@ -36,6 +36,7 @@ namespace Data.Repository.RepositoryModels.M_Service
                 "ServiceOwner",
                 "CategoryService",
                 "Appointments",
+                "Evaluations",
                 "Reservations",
                 "Sector"
             });
@@ -48,8 +49,9 @@ namespace Data.Repository.RepositoryModels.M_Service
             {
                 "ServiceOwner",
                 "CategoryService",
-                "Appointment",
-                "Reservation",
+                "Appointments",
+                "Evaluations",
+                "Reservations",
                 "Sector"
             })
                         .Where(e => e.IsDeleted == false)

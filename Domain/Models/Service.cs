@@ -5,6 +5,9 @@
         public Service()
         {
             Id = Guid.NewGuid();
+            Appointments = new List<Appointment>();
+            Evaluations = new List<Evaluation>();
+            Reservations = new List<Reservation>();
         }
 
         public Guid Id { get; set; }

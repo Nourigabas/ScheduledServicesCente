@@ -1,5 +1,6 @@
 ﻿using Data.Repository.RepositoryModels.M_Account;
 using Domain.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -8,6 +9,7 @@ using System.Text;
 
 namespace ScheduledServicesCente.Controllers
 {
+    [AllowAnonymous]
     [ApiController]
     [Route("api/[Controller]")]
     public class AccountController : Controller
@@ -23,7 +25,7 @@ namespace ScheduledServicesCente.Controllers
 
         //فحص معلومات المستخدم وجلب
         //token
-        [HttpPost("Authentication")]
+        [HttpGet("Authentication")]
         public ActionResult<string> LoginAccount(AuthRequest Request, bool IsOwner)
         {
             (var res, var stringfortype, var fullname) = Account.Login(Request, IsOwner);

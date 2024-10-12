@@ -2,12 +2,16 @@
 using Data.Repository.RepositoryModels;
 using Data.Repository.RepositoryModels.M_Account;
 using Data.Repository.RepositoryModels.M_Appointment;
+using Data.Repository.RepositoryModels.M_Evaluation;
 using Data.Repository.RepositoryModels.M_Reservation;
 using Data.Repository.RepositoryModels.M_Service;
+using Data.Repository.RepositoryModels.M_ServiceOwner;
 using Data.Repository.RepositoryModels.M_User;
+using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,13 +46,20 @@ builder.Services.AddDbContext<DatabaseContext>(option =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+builder.Services.AddScoped<IServiceOwnerRepository, ServiceOwnerRepository>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<ICategoryServiceRepository, CategoryServiceRepository>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<ISectorRepository, SectorRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IEvaluationRepository, EvaluationRepository>();
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    //To avoid circular rings
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
 
 var app = builder.Build();
 

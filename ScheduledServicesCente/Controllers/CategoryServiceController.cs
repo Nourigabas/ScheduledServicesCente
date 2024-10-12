@@ -2,11 +2,14 @@
 using Data.Repository.RepositoryModels;
 using Domain.ModelForCreate;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ScheduledServicesCente.Controllers
 {
+    [AllowAnonymous]
+
     [ApiController]
     [Route("api/[Controller]")]
     public class CategoryServiceController : Controller
