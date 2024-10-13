@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Repository.EncryptionRepository;
 using Data.Repository.RepositoryModels;
 using Data.Repository.RepositoryModels.M_Account;
 using Data.Repository.RepositoryModels.M_Appointment;
@@ -54,6 +55,8 @@ builder.Services.AddScoped<ISectorRepository, SectorRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IEvaluationRepository, EvaluationRepository>();
+builder.Services.AddScoped<IEncryptionRepository, EncryptionRepository>();
+
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {

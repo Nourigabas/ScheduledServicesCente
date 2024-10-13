@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Data.Repository.EncryptionRepository;
 using Domain.ModelForCreate;
 using Domain.Models;
 using Microsoft.AspNetCore.JsonPatch;
@@ -7,16 +8,20 @@ namespace Data.Repository.RepositoryModels.M_User
 {
     public class UserRepository : GenericRepository<User>, IUserRepository
     {
+     
         private readonly IMapper mapper;
+        private readonly IEncryptionRepository Encryption;
         private readonly DatabaseContext DatabaseContext;
-        public UserRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
+        public UserRepository(DatabaseContext DatabaseContext, IMapper mapper, IEncryptionRepository Encryption) : base(DatabaseContext)
         {
             this.mapper = mapper;
+            this.Encryption = Encryption;
             this.DatabaseContext = DatabaseContext;
         }
 
         public void CreateUser(User User)
         {
+            User.Password = Encryption.Encryption(User.Password);
             Add(User);
             SaveChange();
         }
@@ -39,6 +44,8 @@ namespace Data.Repository.RepositoryModels.M_User
             })
                         .Where(e => e.IsDeleted == false)
                         .ToList();
+            foreach (var temp in respone)
+                temp.Password = Encryption.Decryption(temp.Password);
             return respone;
         }
 
@@ -48,6 +55,7 @@ namespace Data.Repository.RepositoryModels.M_User
             {
                     "Reservation"
             });
+            response.Password = Encryption.Decryption(response.Password);
             return response;
         }
 
@@ -57,6 +65,8 @@ namespace Data.Repository.RepositoryModels.M_User
             var UserToPatch = mapper.Map<UserForCreate_Update>(User);
             PatchDocument.ApplyTo(UserToPatch);
             mapper.Map(UserToPatch, User);
+            if (User.Password is not null)
+                User.Password = Encryption.Encryption(User.Password);
             SaveChange();
             return;
         }

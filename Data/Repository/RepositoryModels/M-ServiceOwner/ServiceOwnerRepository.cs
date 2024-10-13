@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Data.Repository.EncryptionRepository;
 using Domain.ModelForCreate;
 using Domain.Models;
 using Microsoft.AspNetCore.JsonPatch;
@@ -9,11 +10,14 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
     {
         private readonly IMapper mapper;
         private readonly DatabaseContext DatabaseContext;
+        private readonly IEncryptionRepository Encryption;
 
-        public ServiceOwnerRepository(DatabaseContext DatabaseContext, IMapper mapper) : base(DatabaseContext)
+        public ServiceOwnerRepository(DatabaseContext DatabaseContext, IMapper mapper, IEncryptionRepository Encryption) : base(DatabaseContext)
         {
             this.mapper = mapper;
             this.DatabaseContext = DatabaseContext;
+            this.Encryption = Encryption;
+
         }
 
         public void ServiceOwnerAccept(Guid ServiceOwnerId)
@@ -23,9 +27,10 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
             SaveChange();
         }
 
-        public void CreateServiceOwner(ServiceOwner ServiceOwner)
+        public void CreateServiceOwner(ServiceOwner serviceowner)
         {
-            Add(ServiceOwner);
+            serviceowner.Password = Encryption.Encryption(serviceowner.Password);
+            Add(serviceowner);
             SaveChange();
         }
 
@@ -45,6 +50,7 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
                 "Sector",
                 "User"
             });
+            response.Password = Encryption.Decryption(response.Password);
             return response;
         }
 
@@ -59,6 +65,8 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
             })
                          .Where(e => e.IsDeleted == false && e.IsAccepted)
                          .ToList();
+            foreach (var temp in respone)
+                temp.Password = Encryption.Decryption(temp.Password);
             return respone;
         }
 
@@ -66,8 +74,11 @@ namespace Data.Repository.RepositoryModels.M_ServiceOwner
         {
             var ServiceOwner = GetServiceOwner(ServiceOwnerId);
             var ServiceToPatch = mapper.Map<ServiceOwnerForCreate_Update>(ServiceOwner);
+
             PatchDocument.ApplyTo(ServiceToPatch);
             mapper.Map(ServiceToPatch, ServiceOwner);
+            if (ServiceOwner.Password is not null)
+                ServiceOwner.Password = Encryption.Encryption(ServiceOwner.Password);
             SaveChange();
             return;
         }
