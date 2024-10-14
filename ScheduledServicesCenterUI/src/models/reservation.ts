@@ -1,15 +1,15 @@
 import { Guid } from "guid-typescript";
-import { IUser } from "./user";
-import { IService } from "./service";
-import { IAppointment } from "./appointment";
+import { User } from "./user";
+import { Service } from "./service";
+import { Appointment } from "./appointment";
 
-export interface IReservation {
-    Id: Guid;
-    IsDelete: boolean;
-    UserId: Guid;
-    User: IUser;
-    ServiceId: Guid;
-    Service: IService;
-    AppointmentId: Guid;
-    Appointment: IAppointment;
+export class Reservation {
+    Id: Guid | undefined;
+    IsDelete: boolean | undefined;
+    UserId: Guid | undefined;
+    User: User | undefined;
+    ServiceId: Guid | undefined;
+    Service: Service | undefined;
+    AppointmentId: Guid | undefined;
+    Appointment: Appointment | undefined;
 }

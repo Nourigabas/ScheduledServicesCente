@@ -11,7 +11,7 @@ namespace ScheduledServicesCente.Controllers
         [AllowAnonymous]
     [ApiController]
     [Route("api/[Controller]")]
-    public class SectorController : Controller
+    public class SectorController : ControllerBase
     {
         private readonly ISectorRepository Sector;
         private readonly IMapper mapper;

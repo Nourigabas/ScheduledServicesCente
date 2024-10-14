@@ -13,7 +13,7 @@ namespace ScheduledServicesCente.Controllers
 
     [ApiController]
     [Route("api/[Controller]")]
-    public class EvaluationController : Controller
+    public class EvaluationController : ControllerBase
     {
         private readonly IMapper mapper;
         private readonly IEvaluationRepository Evaluation;

@@ -1,17 +1,17 @@
 import { Guid } from 'guid-typescript';
-import { ISector } from './sector';
-import { IService } from './service';
+import { Sector } from './sector';
+import { Service } from './service';
 
 
-export interface ICategoryService {
-  Id: Guid;
-  Name: string;
-  UrlCategoryserviceIcon: string;
-  IsDelete: boolean;
-  IsAccepted: boolean;
-  SectorId: Guid;
-  Sector: ISector;
-  Services: IService[];
+export class CategoryService {
+  Id: Guid | undefined;
+  Name: string | undefined;
+  UrlCategoryserviceIcon: string | undefined;
+  IsDelete: boolean | undefined;
+  IsAccepted: boolean | undefined;
+  SectorId: Guid | undefined;
+  Sector: Sector | undefined;
+  Services: Service[] | undefined;
   /**
    *
    */

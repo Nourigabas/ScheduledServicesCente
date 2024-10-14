@@ -1,29 +1,29 @@
 import { Guid } from "guid-typescript"
-import { IService } from "./service";
-import { ISector } from "./sector";
-import { IEvaluation } from "./evaluation";
-import { IUser } from "./user";
+import { Service } from "./service";
+import { Sector } from "./sector";
+import { Evaluation } from "./evaluation";
+import { User } from "./user";
 
-export interface IServiceOwner {
-    Id: Guid;
-    FullName: string;
-    DateOfBirth: Date;
-    Phone: string;
-    Gmail: string;
-    Site: string;
-    UrlImgPersonalIdentity: string;
-    UrlImgWorkIdentity: string;
-    UrlCV: string;
-    IsAccepted: boolean;
-    IsDeleted: boolean;
-    UserName: string;
-    Password: string;
-    EvaluationAverage: number;
-    Services: IService[];
-    Evaluatios: IEvaluation[];
-    SectorId: Guid;
-    Sector: ISector;
-    UserId : Guid;
-    User: IUser;
+export class ServiceOwner {
+    Id: Guid | undefined;
+    FullName: string | undefined;
+    DateOfBirth: Date | undefined;
+    Phone: string | undefined;
+    Gmail: string | undefined;
+    Site: string | undefined;
+    UrlImgPersonalIdentity: string | undefined;
+    UrlImgWorkIdentity: string | undefined;
+    UrlCV: string | undefined;
+    IsAccepted: boolean | undefined;
+    IsDeleted: boolean | undefined;
+    UserName: string | undefined;
+    Password: string | undefined;
+    EvaluationAverage: number | undefined;
+    Services: Service[] | undefined;
+    Evaluatios: Evaluation[] | undefined;
+    SectorId: Guid | undefined;
+    Sector: Sector | undefined;
+    UserId : Guid | undefined;
+    User: User | undefined;
 
 }

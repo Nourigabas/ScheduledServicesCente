@@ -13,7 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
+    overflow: scroll;
     flex-direction: row; /* ترتيب النماذج عموديا */
     gap: 20px; /* تباعد بين النماذج */
 }
@@ -35,7 +35,9 @@ body {
     max-height: 825px;
     padding-right: 10px;
 }
-
+option{
+    color: #100000;
+}
 .body-create::before {
     position: absolute;
     content: "";

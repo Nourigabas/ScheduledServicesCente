@@ -12,7 +12,7 @@ namespace ScheduledServicesCente.Controllers
 
     [ApiController]
     [Route("api/[Controller]")]
-    public class AppointmentController : Controller
+    public class AppointmentController : ControllerBase
     {
         private readonly IMapper mapper;
         private readonly IAppointmentRepository Appointment;

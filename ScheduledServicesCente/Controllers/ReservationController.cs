@@ -12,7 +12,7 @@ namespace ScheduledServicesCente.Controllers
 
     [ApiController]
     [Route("api/[Controller]")]
-    public class ReservationController : Controller
+    public class ReservationController : ControllerBase
     {
         private readonly IMapper mapper;
         private readonly IReservationRepository Reservation;

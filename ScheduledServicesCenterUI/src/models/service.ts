@@ -1,22 +1,22 @@
 import { Guid } from "guid-typescript";
-import { IServiceOwner } from "./service.owner";
-import { ICategoryService } from "./category.service";
-import { IAppointment } from "./appointment";
-import { IReservation } from "./reservation";
-import { ISector } from "./sector";
+import { ServiceOwner } from "./service.owner";
+import { CategoryService } from "./category.service";
+import { Appointment } from "./appointment";
+import { Reservation } from "./reservation";
+import { Sector } from "./sector";
 
-export interface IService {
-    Id: Guid;
-    Description: string;
-    Location: string;
-    IsDeleted: boolean;
-    IsAccepted: boolean;
-    ServiceOwnerId: Guid;
-    ServiceOwner: IServiceOwner;
-    CategoryServiceId: Guid;
-    CategoryService: ICategoryService;
-    Appointments: IAppointment[];
-    Reservations: IReservation[] | null;
-    SectorId: Guid;
-    Sector: ISector;
+export class Service {
+    Id: Guid | undefined;
+    Description: string | undefined;
+    Location: string | undefined;
+    IsDeleted: boolean | undefined;
+    IsAccepted: boolean | undefined;
+    ServiceOwnerId: Guid | undefined;
+    ServiceOwner: ServiceOwner | undefined;
+    CategoryServiceId: Guid | undefined;
+    CategoryService: CategoryService | undefined;
+    Appointments: Appointment[] | undefined;
+    Reservations: Reservation[] | undefined;
+    SectorId: Guid | undefined;
+    Sector: Sector | undefined;
 }

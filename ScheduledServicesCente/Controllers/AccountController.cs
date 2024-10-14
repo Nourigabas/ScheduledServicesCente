@@ -12,7 +12,7 @@ namespace ScheduledServicesCente.Controllers
     [AllowAnonymous]
     [ApiController]
     [Route("api/[Controller]")]
-    public class AccountController : Controller
+    public class AccountController : ControllerBase
     {
         private readonly IConfiguration configuration;
         private readonly IAccountRepository Account;

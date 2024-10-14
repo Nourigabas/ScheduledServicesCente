@@ -1,21 +1,24 @@
 import { Guid } from "guid-typescript"
-import { IReservation } from "./reservation";
-import { IEvaluation } from "./evaluation";
-import { IServiceOwner } from "./service.owner";
+import { Reservation } from "./reservation";
+import { Evaluation } from "./evaluation";
+import { ServiceOwner } from "./service.owner";
 
-export interface IUser {
-    Id: Guid;
-    FullName: string;
-    DateOfBirth: Date;
-    Phone: string;
-    Gmail: string;
-    UserName: string;
-    Password: string;
-    IsDeleted: boolean;
-    IsOwner: boolean;
-    EvaluationId: Guid;
-    Evaluation: IEvaluation
-    OwnerServiceId: Guid;
-    ServiceOwner: IServiceOwner;
-    Reservations: IReservation[];
+export class User {
+    constructor(value?: User){
+        Object.assign(this, value)
+    }
+    Id: Guid | undefined;
+    FullName: string | undefined;
+    DateOfBirth: Date | undefined;
+    Phone: string | undefined;
+    Gmail: string | undefined;
+    UserName: string | undefined;
+    Password: string | undefined;
+    IsDeleted: boolean | undefined;
+    IsOwner: boolean | undefined;
+    EvaluationId: Guid | undefined;
+    Evaluation: Evaluation | undefined;
+    OwnerServiceId: Guid | undefined;
+    ServiceOwner: ServiceOwner | undefined;
+    Reservations: Reservation[] | undefined;
 }

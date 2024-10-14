@@ -1,15 +1,15 @@
 import { Guid } from 'guid-typescript'; 
-import { IService } from './service';
-import { IUser } from './user';
+import { Service } from './service';
+import { User } from './user';
 
 
-export interface IEvaluation {
+export class Evaluation {
 
-    Id: Guid;
-    EvaluationValue: Number;
-    IsDeleted: boolean;
-    ServiceId: Guid;
-    Service: IService;
-    Users: IUser[];
+    Id: Guid | undefined;
+    EvaluationValue: Number | undefined;
+    IsDeleted: boolean | undefined;
+    ServiceId: Guid | undefined;
+    Service: Service | undefined;
+    Users: User[] | undefined;
 }
 
