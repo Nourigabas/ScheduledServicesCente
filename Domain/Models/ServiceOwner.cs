@@ -17,9 +17,9 @@ namespace Domain.Models
         public string Phone { get; set; }
         public string Gmail { get; set; }
         public string Site { get; set; }
-        public List<byte> ImgPersonalIdentity { get; set; }
-        public List<byte> ImgWorkIdentity { get; set; }
-        public List<byte> CV { get; set; }
+        public string UrlImgPersonalIdentity { get; set; }
+        public string UrlImgWorkIdentity { get; set; }
+        public string UrlCV { get; set; }
         public bool IsAccepted { get; set; } = false;
         public bool IsDeleted { get; set; } = false;
         public string UserName { get; set; }

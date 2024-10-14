@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20241012154807_initial")]
-    partial class initial
+    [Migration("20241014141843_finaly")]
+    partial class finaly
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -175,11 +175,11 @@ namespace Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("SectorIcon")
+                    b.Property<string>("TypeSector")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TypeSector")
+                    b.Property<string>("UrlSectorIcon")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -194,8 +194,8 @@ namespace Data.Migrations
                             Description = "Politics news in Syria",
                             IsAccepted = false,
                             IsDeleted = false,
-                            SectorIcon = "[]",
-                            TypeSector = "medicine"
+                            TypeSector = "medicine",
+                            UrlSectorIcon = ""
                         });
                 });
 
@@ -242,10 +242,6 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -257,14 +253,6 @@ namespace Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImgPersonalIdentity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImgWorkIdentity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -289,7 +277,19 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<string>("UrlCV")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImgPersonalIdentity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImgWorkIdentity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("UserName")
@@ -301,7 +301,8 @@ namespace Data.Migrations
                     b.HasIndex("SectorId");
 
                     b.HasIndex("UserId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("OwnerServices");
                 });
@@ -459,9 +460,7 @@ namespace Data.Migrations
 
                     b.HasOne("Domain.Models.User", "User")
                         .WithOne("ServiceOwner")
-                        .HasForeignKey("Domain.Models.ServiceOwner", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Domain.Models.ServiceOwner", "UserId");
 
                     b.Navigation("Sector");
 

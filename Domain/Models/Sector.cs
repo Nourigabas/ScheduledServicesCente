@@ -15,7 +15,7 @@ namespace Domain.Models
         public Guid Id { get; set; }
         public string TypeSector { get; set; }
         public string Description { get; set; }
-        public List<byte> SectorIcon { get; set; }
+        public string UrlSectorIcon { get; set; }
         public bool IsDeleted { get; set; } = false;
         public bool IsAccepted { get; set; } = false;
         public ICollection<ServiceOwner> ServiceOwners { get; set; }

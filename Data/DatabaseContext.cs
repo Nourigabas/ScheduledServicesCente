@@ -61,7 +61,7 @@ namespace Data
                Id = Guid.Parse("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"),
                Description = "Politics news in Syria",
                TypeSector = "medicine",
-               SectorIcon = new List<byte>(),
+               UrlSectorIcon = "",
            });
         }
 
@@ -76,14 +76,14 @@ namespace Data
                             Id = Guid.Parse("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"),
                             Description = "Politics news in Syria",
                             TypeSector = "medicine",
-                            SectorIcon=new List<byte>(),
+               UrlSectorIcon = "",
                         },
                         new Sector
                         {
                             Id = Guid.Parse("0f11bbca-c9b2-4bfb-8acb-20192869ce38"),
                             Description = "Sports news in Syria",
                             TypeSector = "medicine",
-                            SectorIcon=new List<byte>(),
+               UrlSectorIcon = "",
                         }
                     });
             DatabaseContext.SaveChanges();

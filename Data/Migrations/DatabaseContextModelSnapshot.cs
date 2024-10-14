@@ -172,11 +172,11 @@ namespace Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("SectorIcon")
+                    b.Property<string>("TypeSector")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TypeSector")
+                    b.Property<string>("UrlSectorIcon")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -191,8 +191,8 @@ namespace Data.Migrations
                             Description = "Politics news in Syria",
                             IsAccepted = false,
                             IsDeleted = false,
-                            SectorIcon = "[]",
-                            TypeSector = "medicine"
+                            TypeSector = "medicine",
+                            UrlSectorIcon = ""
                         });
                 });
 
@@ -239,10 +239,6 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -254,14 +250,6 @@ namespace Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImgPersonalIdentity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImgWorkIdentity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -283,6 +271,18 @@ namespace Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Site")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlCV")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImgPersonalIdentity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImgWorkIdentity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

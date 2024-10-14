@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Data.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class finaly : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,7 +31,7 @@ namespace Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TypeSector = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SectorIcon = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UrlSectorIcon = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     IsAccepted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -129,16 +129,16 @@ namespace Data.Migrations
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Site = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImgPersonalIdentity = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImgWorkIdentity = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CV = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UrlImgPersonalIdentity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UrlImgWorkIdentity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UrlCV = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsAccepted = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EvaluationAverage = table.Column<double>(type: "float", nullable: false),
                     SectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -153,8 +153,7 @@ namespace Data.Migrations
                         name: "FK_OwnerServices_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -226,8 +225,8 @@ namespace Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Sectors",
-                columns: new[] { "Id", "Description", "IsAccepted", "IsDeleted", "SectorIcon", "TypeSector" },
-                values: new object[] { new Guid("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"), "Politics news in Syria", false, false, "[]", "medicine" });
+                columns: new[] { "Id", "Description", "IsAccepted", "IsDeleted", "TypeSector", "UrlSectorIcon" },
+                values: new object[] { new Guid("e99f4b48-f6c5-4c0b-91a5-a2d6f7e7c392"), "Politics news in Syria", false, false, "medicine", "" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_ServiceId",
@@ -258,7 +257,8 @@ namespace Data.Migrations
                 name: "IX_OwnerServices_UserId",
                 table: "OwnerServices",
                 column: "UserId",
-                unique: true);
+                unique: true,
+                filter: "[UserId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reservations_AppointmentId",
