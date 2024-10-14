@@ -7,6 +7,7 @@ export interface ISector {
   Id: Guid;
   TypeSector: string;
   Description: string;
+  UrlSectorIcon: string;
   IsAccepted: boolean;
   IsDeleted: boolean;
   ServiceOwners: IServiceOwner[];

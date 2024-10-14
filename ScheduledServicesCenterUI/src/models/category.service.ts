@@ -6,6 +6,7 @@ import { IService } from './service';
 export interface ICategoryService {
   Id: Guid;
   Name: string;
+  UrlCategoryserviceIcon: string;
   IsDelete: boolean;
   IsAccepted: boolean;
   SectorId: Guid;
